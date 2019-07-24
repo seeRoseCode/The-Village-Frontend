@@ -31,7 +31,7 @@ class LoginForm extends Component{
             "Content-Type": "Application/Json",
             "accepts": "Application/Json"
           },
-          body: this.state
+          body: JSON.stringify({user: this.state})
         }
       )
 
