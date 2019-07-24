@@ -11,65 +11,36 @@ class CreateAccountForm extends Component{
       "age": 0,
       "birthday": null,
       "married": false,
-      "adult": false,
       "parent": false,
       "password": ""
 }
 
   handleChange = (e) => {
-    switch(e.target.name){
-      case "name":
-        this.setState({name: e.target.value})
-        break
-      case "username":
-        this.setState({username: e.target.value})
-        break
-      case "address":
-        this.setState({address: e.target.value})
-        break
-      case "img_url":
-        this.setState({img_url: e.target.value})
-        break
-      case "age":
-        this.setState({age: e.target.value})
-        break
-      case "birthday":
-        this.setState({birthday: e.target.value})
-        break
-      case "married":
-        this.setState({married: true})
-        break
-      // case "adult":
-      //   this.setState({adult: true})
-      //   break
-      case "parent":
-        this.setState({parent: true})
-        break
-      case "password":
-        this.setState({password: e.target.value})
-        break
-      default:
-        return this.state
-    }
 
-  }
+    this.setState({
+      [e.target.name]: e.target.value
+    }, () => console.log("Updated State: ", this.state))
 
+  }//WORKING
 
   handleSubmit = (e) => {
-    if (this.state.age < 18 === true)
-     {this.setState({adult: true})}
-    else
-     {this.setState({adult: false})}
+    e.preventDefault()
+
+    if ( this.state.age > 18) {
+      this.setState({ adult: true })
+    } else {
+      this.setState({ adult: false })
+   }
       fetch(newUserURL, {
         method: "POST",
         headers: {
             "Content-Type": "Application/Json",
-            "Accepts": "Application/Json"
+            "Accept-Type": "Application/Json"
         },
         body: JSON.stringify({user: this.state})
 
       })
-  }
+  }//WORKING
 
   render(){
     return(
@@ -104,7 +75,8 @@ class CreateAccountForm extends Component{
         </form>
       </div>
     )
-  }
+  }//WORKING
+
 }
 
 export default CreateAccountForm;

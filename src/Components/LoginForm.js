@@ -12,11 +12,9 @@ class LoginForm extends Component{
 
     handleChange = (e) => {
       if (e.target.name === "username"){
-        console.log("look how far we've come!", e.target.name )
         this.setState({username: e.target.value})
       }
       else if (e.target.name === "password"){
-        console.log("look how far we've come!", e.target.name )
         this.setState({password: e.target.value})
       }
     }
@@ -34,9 +32,6 @@ class LoginForm extends Component{
           body: JSON.stringify({user: this.state})
         }
       )
-
-
-
     }
 
     render(){
