@@ -1,5 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom"; //ADD LINK to the list if we end up needing it
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+// import { Container, Icon, Link, List, ListItem, Offcanvas, OffcanvasContainer, Navbar, NavbarContainer, NavbarSticky, Section, NavItem, NavbarDropdown } from 'uikit-react';
+import HomeContainer from  "./components/Containers/HomeContainer"
+import AboutContainer from "./components/Containers/AboutContainer"
+import LoginContainer from  "./components/Containers/LoginContainer"
+import CreateAccountContainer from  "./components/Containers/CreateAccountContainer"
+import ProfileContainer from  "./components/Containers/ProfileContainer"
+import VillageContainer from  "./components/Containers/VillageContainer"
 
 function App(){
   return(
@@ -18,55 +25,32 @@ function App(){
   )
 }
 function Home(){
-  return <h2>Home</h2>
+  return <HomeContainer />
 }
 
 function About(){
-  return <h2>About</h2>
+  return <AboutContainer/>
 }
 
 function Login(){
-  return <h2>Login</h2>
+  return <LoginContainer />
 }
 
 function CreateAccount(){
-  return <h2>Create Account</h2>
+  return <CreateAccountContainer />
 }
 
 function Profile(){
-  return <h2>User's ind. profile or profile of users not signed in yet</h2>
+  return <ProfileContainer />
 }
 
 function Village(){
-  return <h2>My Village</h2>
+  return <VillageContainer />
 }
 
 function Header() {
   return (
     Navbar()
-    // <ul>
-    //   <li>
-    //     <NavLink to="/">Home</NavLink>
-    //   </li>
-    //   <li>
-    //     <Link to="/about">About Us</Link>
-    //   </li>
-    //   <li>
-    //     <Link to="/login">Login</Link>
-    //   </li>
-    //   <li>
-    //     <Link to="/create-account">Create Account</Link>
-    //   </li>
-    //   <li>
-    //     <Link to="/profile"> Profile </Link>
-    //   </li>
-    //   <li>
-    //     <Link to="/my-village">My Village</Link>
-    //   </li>
-    //   <li>
-    //     <Link to="/">Log Out</Link>
-    //   </li>
-    // </ul>
   );
 }
 
@@ -121,3 +105,29 @@ const Navbar = () => {
 
 
 export default App;
+
+
+
+
+
+//   <NavbarSticky>
+//   <NavbarContainer>
+//   <Navbar left>
+//   <NavItem>
+//   <Link>Home</Link>
+// {  // <NavbarDropdown>
+  //   // <NavItem>
+  //   // <Link href="#">Link</Link>
+  //   // </NavItem>
+  //   // </NavbarDropdown>
+  // }
+  //   </NavItem>
+  //   <NavItem>
+  //     <Link href="/">Home</Link>
+  //   </NavItem>
+  //   <NavItem>
+  //   <Link href="#">Link</Link>
+  //   </NavItem>
+  //   </Navbar>
+  //   </NavbarContainer>
+  //   </NavbarSticky>
