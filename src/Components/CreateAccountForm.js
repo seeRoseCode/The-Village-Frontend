@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom'
 const newUserURL = `http://localhost:3000/users`
 
 class CreateAccountForm extends Component{
 
   state ={
+    user: {
       "name": "",
       "username": "",
       "address": "",
@@ -12,13 +14,17 @@ class CreateAccountForm extends Component{
       "birthday": null,
       "married": false,
       "parent": false,
-      "password": ""
-}
+      "password": "",
+    },
+      "errors": []
+}//COMPLETE
 
   handleChange = (e) => {
 
     this.setState({
+      user: {...this.state.user,
       [e.target.name]: e.target.value
+    }
     }, () => console.log("Updated State: ", this.state))
 
   }//WORKING
@@ -30,15 +36,26 @@ class CreateAccountForm extends Component{
       this.setState({ adult: true })
     } else {
       this.setState({ adult: false })
-   }
+    }
+
+    ///////////////////////////////////
       fetch(newUserURL, {
         method: "POST",
         headers: {
             "Content-Type": "Application/Json",
             "Accept-Type": "Application/Json"
         },
-        body: JSON.stringify({user: this.state})
+        body: JSON.stringify({user: this.state.user})
 
+      }).then(res => res.json())
+      .then(res => {
+        if (res.errors)
+          this.setState({...this.state, errors: res.errors})
+        else {
+          console.log("did you just hit me?")
+          localStorage.setItem("token", res.jwt)
+          this.props.history.push('/profile')
+        }
       })
   }//WORKING
 
@@ -46,6 +63,7 @@ class CreateAccountForm extends Component{
     return(
       <div>
         <br/>
+        {this.state.errors.map(error => <p>{error}</p>)}
         <form onSubmit={this.handleSubmit}>
           <label>Name</label>
           <input type="text" name="name" onChange={this.handleChange}/>
@@ -79,4 +97,4 @@ class CreateAccountForm extends Component{
 
 }
 
-export default CreateAccountForm;
+export default withRouter(CreateAccountForm);

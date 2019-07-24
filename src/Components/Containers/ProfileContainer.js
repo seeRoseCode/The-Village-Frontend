@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileCard from '../ProfileCard'
 import MyFamilyContainer from '../Containers/MyFamilyContainer'
 import PostsContainer from '../Containers/PostsContainer'
+import {withRouter} from 'react-router-dom'
 
 function ProfileContainer(){
     return(
@@ -14,4 +15,4 @@ function ProfileContainer(){
     )
 }
 
-export default ProfileContainer;
+export default withRouter(ProfileContainer);
