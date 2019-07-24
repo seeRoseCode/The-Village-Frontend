@@ -1,5 +1,6 @@
 import React from 'react';
 import Calendar  from 'react-calendar'
+import {withRouter} from 'react-router-dom'
 
 function CalendarCard(){
     return(
@@ -9,4 +10,4 @@ function CalendarCard(){
     )
 }
 
-export default CalendarCard;
+export default withRouter(CalendarCard);

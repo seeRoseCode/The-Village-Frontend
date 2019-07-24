@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { Switch, Route, NavLink } from "react-router-dom";
 // import { Container, Icon, Link, List, ListItem, Offcanvas, OffcanvasContainer, Navbar, NavbarContainer, NavbarSticky, Section, NavItem, NavbarDropdown } from 'uikit-react';
 import HomeContainer from  "./components/Containers/HomeContainer"
 import AboutContainer from "./components/Containers/AboutContainer"
@@ -11,17 +11,17 @@ import VillageContainer from  "./components/Containers/VillageContainer"
 function App(){
   return(
 
-    <Router>
       <div>
-        <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component = {About} />
-        <Route path="/login" component={Login} />
-        <Route path="/create-account" component={CreateAccount} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/my-village" component={Village} />
+      <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component = {About} />
+          <Route path="/login" component={Login} />
+          <Route path="/create-account" component={CreateAccount} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/my-village" component={Village} />
+        </Switch>
       </div>
-    </Router>
   )
 }
 function Home(){

@@ -1,4 +1,6 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
+
 // import  from '../'
 
 
@@ -10,4 +12,4 @@ function ActivityCard(){
     )
 }
 
-export default ActivityCard;
+export default withRouter(ActivityCard);

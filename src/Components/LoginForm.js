@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
+import { Redirect, Link } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 const loginURL = 'http://localhost:3000/login'
-// import LoginForm from '../LoginForm'
 
 class LoginForm extends Component{
 
     state = {
         username: "" ,
-        password: ""
-      }
+        password: "",
+        errors: []
+      }//COMPLETE
 
 
     handleChange = (e) => {
@@ -17,7 +19,7 @@ class LoginForm extends Component{
       else if (e.target.name === "password"){
         this.setState({password: e.target.value})
       }
-    }
+    }//WORKING
 
     handleSubmit = (e) => {
       e.preventDefault()
@@ -32,7 +34,18 @@ class LoginForm extends Component{
           body: JSON.stringify({user: this.state})
         }
       )
-    }
+      .then(res => res.json())
+      .then(res => {
+        if (res.errors)
+          this.setState({errors: res.errors})
+        else{
+          localStorage.setItem("token", res.jwt)
+          // debugger
+          console.log(this.props.history)
+          this.props.history.push('/profile')
+          }
+        }
+      )}//WORKING
 
     render(){
 
@@ -40,6 +53,7 @@ class LoginForm extends Component{
       <div>
         <form onSubmit={this.handleSubmit}>
           <br/>
+          {this.state.errors.map(error => <p>{error}</p>)}
           <br/>
           <label>Username</label>
           <input type="text" name="username" onChange={this.handleChange}/>
@@ -51,7 +65,7 @@ class LoginForm extends Component{
         </form>
       </div>
     )
-  }
+  }//WORKING
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

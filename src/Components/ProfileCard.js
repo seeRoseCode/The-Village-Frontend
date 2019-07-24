@@ -1,4 +1,6 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom'
+
 // import  from '../'
 
 function ProfileCard(){
@@ -11,4 +13,4 @@ function ProfileCard(){
     )
 }
 
-export default ProfileCard;
+export default withRouter(ProfileCard);
