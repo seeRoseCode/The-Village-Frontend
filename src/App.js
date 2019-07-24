@@ -8,8 +8,6 @@ import CreateAccountContainer from  "./components/Containers/CreateAccountContai
 import ProfileContainer from  "./components/Containers/ProfileContainer"
 import VillageContainer from  "./components/Containers/VillageContainer"
 
-
-
 function App(){
   return(
 
@@ -79,7 +77,6 @@ const Navbar = () => {
   </div>
   )
 }
-
 
 
 
