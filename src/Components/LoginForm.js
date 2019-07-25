@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Redirect, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
@@ -23,7 +24,6 @@ class LoginForm extends Component{
 
     handleSubmit = (e) => {
       e.preventDefault()
-      console.log("n**** we made it!")
       fetch(loginURL,
         {
           method: "POST",
@@ -40,8 +40,7 @@ class LoginForm extends Component{
           this.setState({errors: res.errors})
         else{
           localStorage.setItem("token", res.jwt)
-          // debugger
-          console.log(this.props.history)
+          this.props.dispatch({type:"LOGIN", user: res.user})
           this.props.history.push('/profile')
           }
         }
@@ -68,4 +67,10 @@ class LoginForm extends Component{
   }//WORKING
 }
 
-export default withRouter(LoginForm);
+let mapStateToProps = (state) => {
+  return{
+    user: state.users.user
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(LoginForm));

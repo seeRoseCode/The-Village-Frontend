@@ -1,5 +1,8 @@
 import React from 'react';
 import CalendarCard from '../CalendarCard'
+import {connect} from 'react-redux'
+import {withRouter} from 'react-router-dom'
+
 function CalendarContainer(){
     return(
       <div>
@@ -9,4 +12,4 @@ function CalendarContainer(){
     )
 }
 
-export default CalendarContainer;
+export default withRouter(connect()(CalendarContainer));
