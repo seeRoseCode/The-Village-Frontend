@@ -31,8 +31,7 @@ class LoginForm extends Component{
 
     return(
       <div>
-        // <form onSubmit={() => this.props.dispatch({type: "LOGIN", user: this.state })}>
-          <form onSubmit={this.handleSubmit}/>
+          <form onSubmit={this.handleSubmit}>
           <br/>
           {/*this.state.errors.map(error => <p>{error}</p>)*/}
           <br/>

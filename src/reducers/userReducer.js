@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, ADD_CHILD, CREATE_ACCOUNT, CREATE_EVENT } from '../actions/types'
+import { LOGIN, LOGOUT, ADD_CHILD, CREATE_ACCOUNT, CREATE_EVENT, GET_CURRENT_USER } from '../actions/types'
 
 
 const userState = {
@@ -7,21 +7,18 @@ const userState = {
 
 const userReducer =  (state = userState, action) => {
   switch(action.type){
-    case LOGIN: {
+    case LOGIN:
       return {...state, user: action.user}
-    }
-    case LOGOUT: {
+    case LOGOUT:
       return {...state, user: userState}
-    }
-    case ADD_CHILD: {
+    case ADD_CHILD:
       return {...state, user: action.user}
-    }
-    case CREATE_ACCOUNT: {
+    case CREATE_ACCOUNT:
       return {...state, user: action.user}
-    }
-    case CREATE_EVENT: {
+    case CREATE_EVENT:
       return {}
-    }
+    case GET_CURRENT_USER:
+      return {user: action.user}
     default:
       return state
   }

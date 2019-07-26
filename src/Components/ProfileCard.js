@@ -30,7 +30,6 @@ class ProfileCard extends Component {
 // }
 
 const mapStateToProps = (state) => {
-  console.log("this is the state: ", state)
   return {user: state.users.user}
 }
 
