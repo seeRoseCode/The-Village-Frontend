@@ -1,59 +1,40 @@
 import React, {Component} from 'react';
 import { Redirect, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
+import { login } from '../actions/functions'
 const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
 
     state = {
         username: "" ,
-        password: "",
-        errors: []
-      }//COMPLETE
+        password: ""
+    }//COMPLETE
 
 
     handleChange = (e) => {
       if (e.target.name === "username"){
-        this.setState({username: e.target.value})
+        this.setState({ username: e.target.value })
       }
       else if (e.target.name === "password"){
-        this.setState({password: e.target.value})
+        this.setState({ password: e.target.value })
       }
     }//WORKING
 
     handleSubmit = (e) => {
       e.preventDefault()
-      console.log("n**** we made it!")
-      fetch(loginURL,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "Application/Json",
-            "accepts": "Application/Json"
-          },
-          body: JSON.stringify({user: this.state})
-        }
-      )
-      .then(res => res.json())
-      .then(res => {
-        if (res.errors)
-          this.setState({errors: res.errors})
-        else{
-          localStorage.setItem("token", res.jwt)
-          // debugger
-          console.log(this.props.history)
-          this.props.history.push('/profile')
-          }
-        }
-      )}//WORKING
+     this.props.login(this.state, this.props.history)
+    }//WORKING
 
     render(){
 
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
+        // <form onSubmit={() => this.props.dispatch({type: "LOGIN", user: this.state })}>
+          <form onSubmit={this.handleSubmit}/>
           <br/>
-          {this.state.errors.map(error => <p>{error}</p>)}
+          {/*this.state.errors.map(error => <p>{error}</p>)*/}
           <br/>
           <label>Username</label>
           <input type="text" name="username" onChange={this.handleChange}/>
@@ -68,4 +49,14 @@ class LoginForm extends Component{
   }//WORKING
 }
 
-export default withRouter(LoginForm);
+let mapStateToProps = (state) => {
+  return{
+    user: state.users.user
+  }
+}
+
+let mapDispatchToProps = {
+  login
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

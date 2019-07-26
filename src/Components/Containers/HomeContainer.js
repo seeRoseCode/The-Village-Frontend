@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Title from '../Title'
 import ReviewContainer from '../Containers/ReviewContainer'
 import ActivityContainer from '../Containers/ActivityContainer'
 
-function HomeContainer(){
+
+
+
+
+class HomeContainer extends Component{
+  render(){
     return(
       <div>
         <Title />
@@ -11,6 +16,7 @@ function HomeContainer(){
         <ActivityContainer />
       </div>
     )
+  }
 }
 
-export default HomeContainer;
+export default (HomeContainer);

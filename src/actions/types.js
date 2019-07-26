@@ -1,5 +1,5 @@
-export const LOGIN_ACTION = "LOGIN_ACTION"
-export const LOGOUT_ACTION = "LOGOUT_ACTION"
+export const LOGIN = "LOGIN"
+export const LOGOUT = "LOGOUT"
 export const ADD_CHILD = "ADD_CHILD"
 export const CREATE_ACCOUNT = "CREATE_ACCOUNT"
 export const CREATE_EVENT = "CREATE_EVENT"

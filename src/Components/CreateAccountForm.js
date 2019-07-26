@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 const newUserURL = `http://localhost:3000/users`
 
 class CreateAccountForm extends Component{
@@ -55,6 +56,7 @@ class CreateAccountForm extends Component{
           console.log("did you just hit me?")
           localStorage.setItem("token", res.jwt)
           this.props.history.push('/profile')
+          this.props.dispatch({type:"LOGIN", user: res})
         }
       })
   }//WORKING
@@ -97,4 +99,10 @@ class CreateAccountForm extends Component{
 
 }
 
-export default withRouter(CreateAccountForm);
+let mapStateToProps = (state) => {
+  return{
+    user: state.users.user
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(CreateAccountForm));
