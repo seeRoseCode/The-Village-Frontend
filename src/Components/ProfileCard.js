@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
 
 
 class ProfileCard extends Component {
 
   handleClick = () => {
-    return <input type="file" name="upload new image"/>
+    console.log("one day")
+    // return <input type="file" name="upload new image"/>
   }
 
   render(){
