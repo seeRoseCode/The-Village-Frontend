@@ -1,5 +1,6 @@
-import React from 'react';
-import { Switch, Route, NavLink } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { Switch, Route, NavLink, withRouter } from "react-router-dom";
 // import { Container, Icon, Link, List, ListItem, Offcanvas, OffcanvasContainer, Navbar, NavbarContainer, NavbarSticky, Section, NavItem, NavbarDropdown } from 'uikit-react';
 import HomeContainer from  "./components/Containers/HomeContainer"
 import AboutContainer from "./components/Containers/AboutContainer"
@@ -7,23 +8,34 @@ import LoginContainer from  "./components/Containers/LoginContainer"
 import CreateAccountContainer from  "./components/Containers/CreateAccountContainer"
 import ProfileContainer from  "./components/Containers/ProfileContainer"
 import VillageContainer from  "./components/Containers/VillageContainer"
+import { getCurrentUser } from './actions/functions'
 
-function App(){
-  return(
+class App extends Component{
+
+  // componentDidMount(){
+  //   this.props.getCurrentUser()
+  //   //dispatch an action that fetches the current user from the backend and saves the store
+  // }
+
+ render(){
+
+   return(
 
       <div>
       <Header />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/about" component = {About} />
-          <Route path="/login" component={Login} />
-          <Route path="/create-account" component={CreateAccount} />
+          <Route exact path="/about" component = {About} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/create-account" component={CreateAccount} />
           <Route exact path="/profile" component={Profile} />
-          <Route path="/my-village" component={Village} />
+          <Route exact path="/my-village" component={Village} />
         </Switch>
       </div>
-  )
+    )
+  }
 }
+
 function Home(){
   return <HomeContainer />
 }
@@ -78,33 +90,15 @@ const Navbar = () => {
   )
 }
 
+const mapStateToProps = (state) => {
+  return {user: state.users.user}
+}
 
+let mapDispatchToProps = {
+  getCurrentUser
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default App;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 
 
