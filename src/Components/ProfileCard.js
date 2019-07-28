@@ -7,8 +7,9 @@ import {connect} from 'react-redux'
 
 class ProfileCard extends Component {
 
-  handleClick = () => {
-    console.log("one day")
+  handleEdit = () => {
+    console.log("let's do this!")
+    this.props.history.push('/edit-profile')
     // return <input type="file" name="upload new image"/>
   }
 
@@ -20,7 +21,7 @@ class ProfileCard extends Component {
         <h3>{this.props.user.name}</h3>
       }
         <h3>{this.props.user.age}</h3>
-        <button onClick={this.handleClick}>edit</button>
+        <button onClick={this.handleEdit}>edit</button>
       </div>
     )
   }

@@ -85,9 +85,11 @@ class CreateAccountForm extends Component{
           <label>Birthday</label>
           <input type="date" name="birthday" onChange={this.handleChange}/>
           <br/>
-          <label>Parent</label>
-          <input type="checkbox" name="parent" onChange={this.handleChange}/>
-          <br/>
+          {
+          // <label>Parent</label>
+          // <input type="checkbox" name="parent" onChange={this.handleChange}/>
+          // <br/>
+          }
           <label>Married</label>
           <input type="checkbox" name="married" onChange={this.handleChange}/>
           <br/>

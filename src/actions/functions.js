@@ -1,13 +1,18 @@
- import { LOGIN, LOGOUT, GET_CURRENT_USER } from './types'
+ import { LOGIN, LOGOUT, GET_CURRENT_USER, EDIT_USER } from './types'
  const loginURL = 'http://localhost:3000/login'
  const profileURL = 'http://localhost:3000/profile'
 
 
+export function editUser(data, history){
+  console.log("did you just hit me?")
+  return dispatch => {
+    dispatch({type: EDIT_USER, user: data})
+    history.push("/profile")
+  }
+}
 
 export function login(data, history){
-  console.log("login ", data)
   return dispatch => {
-    console.log("inside dispatch")
     fetch(loginURL,
       {
         method: "POST",
@@ -24,7 +29,6 @@ export function login(data, history){
       // // console.log(res.errors)
       //   // this.setState({errors: res.errors})
       // else{
-      console.log("res: ", res)
         localStorage.setItem("token", res.jwt)
         dispatch({type: LOGIN, user: res.user})
         history.push('/profile')
@@ -38,7 +42,6 @@ export function login(data, history){
 
 export function logout(){
   localStorage.removeItem("token")
-  console.log("logout")
 }
 
 export function add_child(){

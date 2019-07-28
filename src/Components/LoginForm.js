@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { Redirect, Link } from 'react-router-dom'
+// import { Redirect, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { login } from '../actions/functions'
-const loginURL = 'http://localhost:3000/login'
+// const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
 
@@ -12,6 +12,9 @@ class LoginForm extends Component{
         password: ""
     }//COMPLETE
 
+    componentDidCatch(){
+      this.setState({hasError: true})
+    }
 
     handleChange = (e) => {
       if (e.target.name === "username"){

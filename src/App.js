@@ -8,14 +8,16 @@ import LoginContainer from  "./components/Containers/LoginContainer"
 import CreateAccountContainer from  "./components/Containers/CreateAccountContainer"
 import ProfileContainer from  "./components/Containers/ProfileContainer"
 import VillageContainer from  "./components/Containers/VillageContainer"
+import EditContainer from './components/Containers/EditContainer.js'
 import { getCurrentUser } from './actions/functions'
 
 class App extends Component{
 
-  // componentDidMount(){
-  //   this.props.getCurrentUser()
-  //   //dispatch an action that fetches the current user from the backend and saves the store
-  // }
+  componentDidMount(){
+    if (localStorage.getItem("token"))
+    this.props.getCurrentUser()
+    //dispatch an action that fetches the current user from the backend and saves the store
+  }
 
  render(){
 
@@ -30,6 +32,7 @@ class App extends Component{
           <Route exact path="/create-account" component={CreateAccount} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/my-village" component={Village} />
+          <Route exact path="/edit-profile" component={Edit} />
         </Switch>
       </div>
     )
@@ -60,6 +63,10 @@ function Village(){
   return <VillageContainer />
 }
 
+function Edit(){
+  return <EditContainer />
+}
+
 function Header() {
   return (
     Navbar()
@@ -85,8 +92,6 @@ const Navbar = () => {
     { localStorage.getItem("token") ? null : <NavLink to="/create-account" exact style={link} activeStyle={{background: 'darkblue'}}>Create Account</NavLink>}
     { localStorage.getItem("token") ? <NavLink to="/my-village" exact style={link} activeStyle={{background: 'darkblue'}}>My Village</NavLink> : null}
     { localStorage.getItem("token")  ? <NavLink to="/profile" exact style={link} activeStyle={{background: 'darkblue'}}>Profile</NavLink> : null}
-
-
   </div>
   )
 }
