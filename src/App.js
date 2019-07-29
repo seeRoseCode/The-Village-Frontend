@@ -81,11 +81,12 @@ const Navbar = () => {
   <div>
     <NavLink to="/" exact style={link} activeStyle={{background: 'darkblue'}}>Home</NavLink>
     <NavLink to="/about" exact style={link} activeStyle={{background: 'darkblue'}}>About Us</NavLink>
-    <NavLink to="/login" exact style={link} activeStyle={{background: 'darkblue'}}>Log In</NavLink>
-    <NavLink to="/create-account" exact style={link} activeStyle={{background: 'darkblue'}}>Create Account</NavLink>
-    <NavLink to="/my-village" exact style={link} activeStyle={{background: 'darkblue'}}>My Village</NavLink>
-    <NavLink to="/profile" exact style={link} activeStyle={{background: 'darkblue'}}>Profile</NavLink>
-    <NavLink to="/" exact style={link} activeStyle={{background: 'darkblue'}}>LogOut</NavLink>
+    { localStorage.getItem("token") ? null : <NavLink to="/login" exact style={link} activeStyle={{background: 'darkblue'}}>Log In</NavLink> }
+    { localStorage.getItem("token") ? null : <NavLink to="/create-account" exact style={link} activeStyle={{background: 'darkblue'}}>Create Account</NavLink>}
+    { localStorage.getItem("token") ? <NavLink to="/my-village" exact style={link} activeStyle={{background: 'darkblue'}}>My Village</NavLink> : null}
+    { localStorage.getItem("token")  ? <NavLink to="/profile" exact style={link} activeStyle={{background: 'darkblue'}}>Profile</NavLink> : null}
+
+
   </div>
   )
 }

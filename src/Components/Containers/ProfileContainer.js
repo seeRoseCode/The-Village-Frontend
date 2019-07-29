@@ -11,6 +11,12 @@ class ProfileContainer extends Component{
     this.props.getCurrentUser()
     //dispatch an action that fetches the current user from the backend and saves the store
   }
+
+  logout = () => {
+  localStorage.removeItem("token")
+  this.props.history.push("/")
+  }
+
   render(){
   console.log("profile cont: ", this.props)
 
@@ -20,6 +26,7 @@ class ProfileContainer extends Component{
         <ProfileCard />
         <MyFamilyContainer />
         <PostsContainer />
+        <button onClick={this.logout}>LOGOUT</button>
       </div>
     )
   }
