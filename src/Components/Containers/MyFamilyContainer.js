@@ -11,20 +11,20 @@ class MyFamilyContainer extends Component{
   }
 
   renderVillagerCard = () => {
-    console.log("the user", this.props.user.village)
-    debugger
-    this.props.user.village.forEach(function(villager){ <Vill member={vill}}
+    console.log("the user's village", this.props.user.village)
+    // debugger
+    // let arr = this.props.user.village
+    // arr.map( (vill) => return <Villager member={vill} />)
   }
 
   render(){
     return(
       <div>
       {this.renderVillagerCard()}
-        {// <Villager />
-        }
       </div>
     )
   }
+
 }
 
 

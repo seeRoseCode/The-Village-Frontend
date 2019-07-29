@@ -3,13 +3,16 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import { login } from '../actions/functions'
-// const loginURL = 'http://localhost:3000/login'
+const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
 
     state = {
+      errors: [],
+      user:{
         username: "" ,
         password: ""
+      }
     }//COMPLETE
 
     componentDidCatch(){
@@ -27,7 +30,37 @@ class LoginForm extends Component{
 
     handleSubmit = (e) => {
       e.preventDefault()
-     this.props.login(this.state, this.props.history)
+     // this.props.login(this.state, this.props.history)
+
+
+     fetch(loginURL,
+       {
+         method: "POST",
+         headers: {
+           "Content-Type": "Application/Json",
+           "Accept-Type": "Application/Json"
+         },
+         body: JSON.stringify({user: this.state.user})
+       }
+     )
+     .then(res => res.json())
+     .then(res => {
+       if (res.errors)
+         this.setState({errors: res.errors})
+       else{
+         localStorage.setItem("token", res.jwt)
+         // dispatch({type: LOGIN, user: res.user})
+         this.props.history.push('/profile')
+         console.log("log in: ", res.user)
+         // history.push('/profile')
+         }
+       }
+     )
+
+
+
+
+
     }//WORKING
 
     render(){
@@ -36,7 +69,7 @@ class LoginForm extends Component{
       <div>
           <form onSubmit={this.handleSubmit}>
           <br/>
-          {/*this.state.errors.map(error => <p>{error}</p>)*/}
+          {this.state.errors.map(error => <p>{error}</p>)}
           <br/>
           <label>Username</label>
           <input type="text" name="username" onChange={this.handleChange}/>
