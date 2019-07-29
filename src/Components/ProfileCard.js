@@ -9,7 +9,6 @@ import defaultImg from './defaultImages/defaultImg.png'
 class ProfileCard extends Component {
 
   handleEdit = () => {
-    console.log("let's do this!")
     this.props.history.push('/edit-profile')
   }
 

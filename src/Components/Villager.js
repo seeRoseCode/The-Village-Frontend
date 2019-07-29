@@ -3,6 +3,7 @@ import React from 'react';
 
 
 function Villager(){
+  console.log("we getting this far or nah?")
     return(
       <div>
         <img src="" alt="Villager img here"/>
