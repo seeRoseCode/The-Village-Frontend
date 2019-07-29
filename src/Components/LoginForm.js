@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 // import { Redirect, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import { login } from '../actions/functions'
+// import { login } from '../actions/functions'
 const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
@@ -86,7 +86,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = {
-  login
+  // login
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));

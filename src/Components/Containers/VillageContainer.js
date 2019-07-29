@@ -14,3 +14,9 @@ function VillageContainer(){
 }
 
 export default VillageContainer;
+
+
+// {
+//   this.props.user.village &&
+//   this.props.user.village.map((vill) => <Villager villager={vill} />)
+// }

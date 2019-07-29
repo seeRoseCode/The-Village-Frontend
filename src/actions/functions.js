@@ -1,6 +1,18 @@
- import { LOGIN, LOGOUT, GET_CURRENT_USER, EDIT_USER } from './types'
+ import { LOGOUT, GET_CURRENT_USER, EDIT_USER, FIND_USER } from './types'
  const loginURL = 'http://localhost:3000/login'
  const profileURL = 'http://localhost:3000/profile'
+ const usersURL = 'http://localhost:3000/users'
+
+export function findUser(userId, history){
+  return dispatch => {
+    fetch(`${usersURL}/${userId}`)
+    .then(res => res.json())
+    .then(res => {
+    dispatch({type: FIND_USER, user: res.user})
+    history.push("/villager-profile")
+    })
+  }
+}
 
 
 export function editUser(data, history){
@@ -8,35 +20,6 @@ export function editUser(data, history){
   return dispatch => {
     dispatch({type: EDIT_USER, user: data})
     history.push("/profile")
-  }
-}
-
-export function login(data, history){
-  return dispatch => {
-    fetch(loginURL,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "Application/Json",
-          "Accept-Type": "Application/Json"
-        },
-        body: JSON.stringify({user: data})
-      }
-    )
-    .then(res => res.json())
-    .then(res => {
-      // if (res.errors)
-      // // console.log(res.errors)
-      //   // this.setState({errors: res.errors})
-      // else{
-        localStorage.setItem("token", res.jwt)
-        dispatch({type: LOGIN, user: res.user})
-        history.push('/profile')
-        console.log("this thing: ", res.user)
-        // history.push('/profile')
-        // }
-      }
-    )
   }
 }
 
@@ -72,3 +55,32 @@ export function getCurrentUser(){
     })
   }
 }
+
+
+////////////////////////////////////UNUSED//////////////////////////////////////
+
+
+// export function login(data, history){
+  //   return dispatch => {
+    //     fetch(loginURL,
+      //       {
+        //         method: "POST",
+        //         headers: {
+          //           "Content-Type": "Application/Json",
+          //           "Accept-Type": "Application/Json"
+          //         },
+          //         body: JSON.stringify({user: data})
+          //       }
+          //     )
+          //     .then(res => res.json())
+          //     .then(res => {
+            //         localStorage.setItem("token", res.jwt)
+            //         dispatch({type: LOGIN, user: res.user})
+            //         history.push('/profile')
+            //         console.log("this thing: ", res.user)
+            //         // history.push('/profile')
+            //         // }
+            //       }
+            //     )
+            //   }
+            // }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import defaultImg from './defaultImages/defaultImg.png'
+import PanicButton from './PanicButton'
 // import {Redirect} from 'react-router-dom'
 
 
@@ -26,8 +27,8 @@ class ProfileCard extends Component {
       <div>
         {this.renderImg()}
         <h3>{this.props.user.name}</h3>
-
-        <h3>{this.props.user.age}</h3>
+        <h3>{this.props.user.age} years old</h3>
+        <PanicButton />
         <button onClick={this.handleEdit}>edit</button>
       </div>
     )

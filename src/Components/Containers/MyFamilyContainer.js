@@ -16,8 +16,8 @@ class MyFamilyContainer extends Component{
     return(
       <div>
       {
-        this.props.user.village &&
-        this.props.user.village.map((vill) => <Villager />)
+        this.props.user.family &&
+        this.props.user.family.members.map((vill) => <Villager villager={vill} />)
       }
       </div>
     )
@@ -37,12 +37,3 @@ const mapDispatchToProps = {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyFamilyContainer));
-
-
-/////////////////////////////UNUSED/////////////////////////////////////////////
-
-// renderVillagerCard = () => {
-  //   console.log("the user's village", this.props.user.village)
-  //     let arr = this.props.user.village
-  //     arr.map( (vill) => <Villager />)
-  // }
