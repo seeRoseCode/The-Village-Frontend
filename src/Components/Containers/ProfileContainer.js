@@ -5,12 +5,13 @@ import PostsContainer from '../Containers/PostsContainer'
 import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
+
 class ProfileContainer extends Component{
 
   componentDidMount(){
     this.props.getCurrentUser()
-    //dispatch an action that fetches the current user from the backend and saves the store
   }
+
 
   logout = () => {
   localStorage.removeItem("token")
