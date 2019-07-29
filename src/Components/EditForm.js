@@ -31,24 +31,12 @@ componentDidMount(){
    this.setState({
      user: {...this.state.user,
      [e.target.name]: e.target.value
-   }
- }, () => console.log("done!"))
-   // if (e.target.name !== "password")
-   //  {
-   //    this.setState({
-   //      user: {...this.state.user,
-   //        [e.target.name]: e.target.value
-   //        }
-   //    })
-   //  }
-   //  else if (e.target.value === this.state.password)
-   //  {this.setState({...this.state.user,
-   //    password: e.target.value})}
- }
+     }
+    })
+}
 
  handleSubmit = (e) => {
    e.preventDefault()
-   // console.log('we submitted the form! ^_^', this.props.user.jwt)
 
    if ( this.props.user.children > 0) {
      this.setState({ parent: true })
@@ -57,25 +45,18 @@ componentDidMount(){
    }
 
    /////////////////////////////////
-     // fetch(`${userURL}/${this.props.user.id}`, {
-     //   method: "PATCH",
-     //   headers: {
-     //       "Content-Type": "Application/Json",
-     //       "Accept-Type": "Application/Json"
-     //   },
-     //   body: JSON.stringify({user: this.state.user})
-     //
-     // }).then(res => res.json())
-     // .then(res =>
-     //   if (res.errors)
-     //     this.setState({...this.state, errors: res.errors})
-     //   else {
-     //     localStorage.setItem("token", res.jwt)
-     //     this.props.history.push('/profile')
-     //     this.props.dispatch({type:"UPDATE", user: res})
-     //   }
-     // })
- }
+     fetch(`${userURL}/${this.props.user.id}`,
+       {
+       method: "PATCH",
+       headers: {
+           "Content-Type": "Application/Json",
+           "Accept-Type": "Application/Json"
+       },
+       body: JSON.stringify({user: this.state.user})
+       })
+       .then(res => res.json())
+         this.props.history.push('/profile')
+    }
 
  render(){
    return(
