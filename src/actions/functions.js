@@ -3,13 +3,14 @@
  const profileURL = 'http://localhost:3000/profile'
  const usersURL = 'http://localhost:3000/users'
 
-export function findUser(userId, history){
+export function findUser(data){
+  console.log("user id:", data.id)
   return dispatch => {
-    fetch(`${usersURL}/${userId}`)
+    fetch(`${usersURL}/${data.id}`)
     .then(res => res.json())
     .then(res => {
-    dispatch({type: FIND_USER, user: res.user})
-    history.push("/villager-profile")
+    dispatch({type: FIND_USER, villager: res})
+    console.log("the fetched user: ", res)
     })
   }
 }

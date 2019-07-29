@@ -10,15 +10,14 @@ class VillagersContainer extends Component{
     this.props.getCurrentUser()
   }
 
-  renderVillagerCard = () => {
-    console.log("the user", this.props.user.village)
-    // this.props.user.village.map(villager => <Villager member={villager})
-  }
 render(){
 
     return(
       <div>
-        {this.renderVillagerCard()}
+        {
+          this.props.village &&
+          this.props.village.map((vill) => <Villager villager={vill} />)
+        }
       </div>
     )
   }
