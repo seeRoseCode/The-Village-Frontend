@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import Villager from '../Villager'
 import {connect} from 'react-redux'
-import { getCurrentUser } from '../../actions/functions'
+import {  } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
 
 class MyFamilyContainer extends Component{
 
-  componentDidMount(){
-    this.props.getCurrentUser()
-  }
 
-  renderVillagerCard = () => {
-    console.log("the user's village", this.props.user.village)
-    // debugger
-    // let arr = this.props.user.village
-    // arr.map( (vill) => return <Villager member={vill} />)
-  }
 
   render(){
     return(
       <div>
-      {this.renderVillagerCard()}
+      {
+        this.props.family &&
+        this.props.family.members.map((vill) => <Villager villager={vill} />)
+      }
       </div>
     )
   }
@@ -35,7 +29,7 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = {
-  getCurrentUser
+
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyFamilyContainer));

@@ -9,13 +9,15 @@ import CreateAccountContainer from  "./components/Containers/CreateAccountContai
 import ProfileContainer from  "./components/Containers/ProfileContainer"
 import VillageContainer from  "./components/Containers/VillageContainer"
 import EditContainer from './components/Containers/EditContainer.js'
+import VillagerProfile from './components/VillagerProfile'
 import { getCurrentUser } from './actions/functions'
 
 class App extends Component{
 
   componentDidMount(){
-    if (localStorage.getItem("token"))
-    this.props.getCurrentUser()
+    if (localStorage.getItem("token")) {
+      this.props.getCurrentUser()
+    }
     //dispatch an action that fetches the current user from the backend and saves the store
   }
 
@@ -26,46 +28,20 @@ class App extends Component{
       <div>
       <Header />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/about" component = {About} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/create-account" component={CreateAccount} />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/my-village" component={Village} />
-          <Route exact path="/edit-profile" component={Edit} />
+          <Route exact path="/" component={HomeContainer} />
+          <Route exact path="/about" component = {AboutContainer} />
+          <Route exact path="/login" component={LoginContainer} />
+          <Route exact path="/create-account" component={CreateAccountContainer} />
+          <Route exact path="/profile" component={ProfileContainer} />
+          <Route exact path="/my-village" component={VillageContainer} />
+          <Route exact path="/edit-profile" component={EditContainer} />
+          <Route exact path="/villager-profile/:id" component={VillagerProfile} />
         </Switch>
       </div>
     )
   }
 }
 
-function Home(){
-  return <HomeContainer />
-}
-
-function About(){
-  return <AboutContainer/>
-}
-
-function Login(){
-  return <LoginContainer />
-}
-
-function CreateAccount(){
-  return <CreateAccountContainer />
-}
-
-function Profile(){
-  return <ProfileContainer />
-}
-
-function Village(){
-  return <VillageContainer />
-}
-
-function Edit(){
-  return <EditContainer />
-}
 
 function Header() {
   return (

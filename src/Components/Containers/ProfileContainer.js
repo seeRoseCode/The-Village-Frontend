@@ -24,8 +24,8 @@ class ProfileContainer extends Component{
     return(
       <div>
         <br/>
-        <ProfileCard />
-        <MyFamilyContainer />
+        <ProfileCard thisUser={this.props.user} />
+        <MyFamilyContainer family={this.props.user.family}/>
         <PostsContainer />
         <button onClick={this.logout}>LOGOUT</button>
       </div>
