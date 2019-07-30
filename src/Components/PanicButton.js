@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function PanicButton(props){
-  console.log("this villager's lost status: ", props.lost)
+class PanicButton extends Component{
+
+  handleClick = () => {
+    console.log("HONEY I LOST THE KID!")
+  }
+
+  render(){
     return(
-      <div>
-        <button>{props.lost? "FOUND" : "PANIC"}</button>
+      <div className="panic" onClick={this.handleClick}>
+        <button>{this.props.lost? "FOUND" : "PANIC"}</button>
       </div>
     )
+  }
 }
 
 export default PanicButton;

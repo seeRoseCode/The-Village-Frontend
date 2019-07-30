@@ -20,14 +20,32 @@ class Villager extends Component{
     console.log("villager image: ", this.props.villager.img_url)
     let thisUser = this.props.villager
     return(
-        <Link as='a' to={`/villager-profile/${this.props.villager.id}`}>
-        <div className="villager-card">
-          {this.renderImg()}
-          <h3>{thisUser.name}</h3>
-          <h3>{thisUser.age}</h3>
-          <PanicButton lost={thisUser.lost} />
-        </div>
-        </Link>
+
+      <div className="card">
+          <div className="image">
+            {this.renderImg()}
+          </div>
+          <div className="content">
+            <div className="header">
+              <h3>{thisUser.name}</h3>
+            </div>
+            <div className="meta">
+              <span className="date">
+                {thisUser.age}
+              </span>
+            </div>
+          </div>
+          <div className="extra content">
+            <span class="floated right">
+              <PanicButton lost={thisUser.lost} />
+            </span>
+            <span class="floated left">
+              <button as='a' to={`/villager-profile/${thisUser.id}`}>
+              VIEW
+              </button>
+            </span>
+          </div>
+      </div>
     )
   }
 }

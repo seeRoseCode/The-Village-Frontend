@@ -13,7 +13,7 @@ class VillagersContainer extends Component{
 render(){
 
     return(
-      <div>
+      <div className="ui link cards">
         {
           this.props.village &&
           this.props.village.map((vill) => <Villager villager={vill} />)
