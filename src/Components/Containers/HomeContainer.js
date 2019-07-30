@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Title from '../Title'
 import ReviewContainer from '../Containers/ReviewContainer'
 import ActivityContainer from '../Containers/ActivityContainer'
-
+import { Image, Container } from 'semantic-ui-react'
+import logo from '../images/village-logo-3.jpg'
 
 
 
@@ -10,11 +11,11 @@ import ActivityContainer from '../Containers/ActivityContainer'
 class HomeContainer extends Component{
   render(){
     return(
-      <div>
-        <Title />
-        <ReviewContainer />
-        <ActivityContainer />
-      </div>
+      <Container>
+      <Title />
+      <ReviewContainer />
+      <ActivityContainer />
+      </Container>
     )
   }
 }

@@ -3,6 +3,7 @@ import Villager from '../Villager'
 import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
+import {Card, Container} from 'semantic-ui-react'
 
 class VillagersContainer extends Component{
 
@@ -13,12 +14,12 @@ class VillagersContainer extends Component{
 render(){
 
     return(
-      <div className="ui link cards">
+      <Card.Group style={{overflow: 'auto'}}>
         {
           this.props.village &&
           this.props.village.map((vill) => <Villager villager={vill} />)
         }
-      </div>
+        </Card.Group>
     )
   }
 }

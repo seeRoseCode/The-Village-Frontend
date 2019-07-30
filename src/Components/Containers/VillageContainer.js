@@ -4,16 +4,17 @@ import {withRouter} from 'react-router-dom'
 import CalendarContainer from '../Containers/CalendarContainer'
 import VillagersContainer from '../Containers/VillagersContainer'
 import PostsContainer from '../Containers/PostsContainer'
+import { Container } from 'semantic-ui-react'
 
 
 class VillageContainer extends Component{
   render(){
     return(
-      <div>
+      <Container>
         <CalendarContainer />
         <VillagersContainer village={this.props.user.village} />
         <PostsContainer />
-      </div>
+      </Container>
     )
   }
 }

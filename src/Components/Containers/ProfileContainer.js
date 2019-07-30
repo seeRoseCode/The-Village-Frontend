@@ -25,6 +25,7 @@ class ProfileContainer extends Component{
       <div>
         <br/>
         <ProfileCard thisUser={this.props.user} />
+        <br/>
         <MyFamilyContainer family={this.props.user.family}/>
         <PostsContainer />
       </div>

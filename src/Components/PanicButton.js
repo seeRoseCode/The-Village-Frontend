@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react'
 
 class PanicButton extends Component{
 
@@ -8,9 +9,7 @@ class PanicButton extends Component{
 
   render(){
     return(
-      <div className="panic" onClick={this.handleClick}>
-        <button>{this.props.lost? "FOUND" : "PANIC"}</button>
-      </div>
+        <Button className="panic" floated="right" onClick={this.handleClick}>{this.props.lost? "FOUND" : "PANIC"}</Button>
     )
   }
 }
