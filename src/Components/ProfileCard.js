@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import defaultImg from './defaultImages/defaultImg.png'
+import defaultImg from './images/defaultImg.png'
 import PanicButton from './PanicButton'
 import { Image, Card, Button, Header } from 'semantic-ui-react'
 // import {Redirect} from 'react-router-dom'
@@ -24,9 +24,8 @@ class ProfileCard extends Component {
   }
 
   renderEditButton = () => {
-    console.log("the logged in user: ", this.props.user)
     if (this.props.user === this.props.thisUser){
-      return <Button onClick={this.handleEdit}>edit</Button>
+      return <Button onClick={this.handleEdit}>EDIT</Button>
     }
   }
 
@@ -37,8 +36,8 @@ class ProfileCard extends Component {
       <Card floated="right">
         <Header floated="right">{this.props.thisUser.name}</Header>
         <Card.Meta>{this.props.thisUser.age} years old</Card.Meta>
-        <PanicButton />
-        {this.renderEditButton}
+        <PanicButton thisUser={this.props.thisUser} />
+        {this.renderEditButton()}
       </Card>
       </div>
     )

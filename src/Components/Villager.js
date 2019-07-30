@@ -27,7 +27,7 @@ class Villager extends Component{
             <Header>{thisUser.name}</Header>
             <Card.Meta>{thisUser.age} years old</Card.Meta>
             <Card.Content>
-              <PanicButton lost={thisUser.lost} />
+              <PanicButton thisUser={thisUser} />
               <Button as='a' href={`/villager-profile/${thisUser.id}`} floated="left">VIEW</Button>
             </Card.Content>
       </Card>

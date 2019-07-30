@@ -12,7 +12,6 @@ class VillagerProfile extends Component{
 
 
   render(){
-    console.log("the villager profile page")
     return(
       <div>
         <h1>Individual Villager Profile</h1>

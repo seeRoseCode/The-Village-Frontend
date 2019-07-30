@@ -1,46 +1,86 @@
- import { LOGOUT, GET_CURRENT_USER, EDIT_USER, FIND_USER } from './types'
- const loginURL = 'http://localhost:3000/login'
+ import { GET_CURRENT_USER, EDIT_USER, FIND_USER, UPDATE_USER_STATUS, UPDATE_VILLAGER_STATUS } from './types'
+ // const loginURL = 'http://localhost:3000/login'
  const profileURL = 'http://localhost:3000/profile'
  const usersURL = 'http://localhost:3000/users'
 
+////////////////////////////////////////////////////////////////////////////////
+export function updateVillagerStatus(userId, userStatus){
+  return dispatch => {
+    // debugger;
+
+    fetch(`${usersURL}/${userId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({status: userStatus})
+      })
+      .then(res => res.json())
+      .then(res => {
+        console.log("did we get a response?", res)
+        // dispatch({type: UPDATE_VILLAGER_STATUS, villager: res})
+      })
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+export function updateUserStatus(data){
+  return dispatch => {
+    debugger;
+
+    fetch(`${usersURL}/${data}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(res => {
+        dispatch({type: UPDATE_USER_STATUS, user: res})
+      })
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 export function findUser(data){
-  console.log("user id:", data.id)
   return dispatch => {
     fetch(`${usersURL}/${data.id}`)
     .then(res => res.json())
     .then(res => {
     dispatch({type: FIND_USER, villager: res})
-    console.log("the fetched user: ", res)
     })
   }
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
 export function editUser(data, history){
-  console.log("did you just hit me?")
   return dispatch => {
     dispatch({type: EDIT_USER, user: data})
     history.push("/profile")
   }
 }
 
-export function logout(){
-  localStorage.removeItem("token")
-}
-
+////////////////////////////////////////////////////////////////////////////////
 export function add_child(){
   console.log("add_child")
 }
 
+////////////////////////////////////////////////////////////////////////////////
 export function create_account(){
   console.log("create_account")
 }
 
+////////////////////////////////////////////////////////////////////////////////
 export function create_event(){
   console.log("Create Event")
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
 export function getCurrentUser(){
   return dispatch => {
     fetch(profileURL, {
@@ -52,7 +92,7 @@ export function getCurrentUser(){
     .then(res => res.json())
     .then(res => {
         dispatch({type: GET_CURRENT_USER, user: res.user})
-        console.log(res)
+
     })
   }
 }

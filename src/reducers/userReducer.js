@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, ADD_CHILD, CREATE_ACCOUNT, CREATE_EVENT, GET_CURRENT_USER, EDIT_USER} from '../actions/types'
+import { LOGIN, LOGOUT, ADD_CHILD, CREATE_ACCOUNT, CREATE_EVENT, GET_CURRENT_USER, EDIT_USER, UPDATE_USER_STATUS} from '../actions/types'
 
 
 const userState = {
@@ -21,6 +21,8 @@ const userReducer =  (state = userState, action) => {
       return {user: action.user}
     case EDIT_USER:
       return {user:action.user}
+    case UPDATE_USER_STATUS:
+      return {user: action.user}
     default:
       return state
   }

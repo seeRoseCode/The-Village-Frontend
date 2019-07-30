@@ -19,7 +19,6 @@ class ProfileContainer extends Component{
   }
 
   render(){
-  console.log("profile cont: ", this.props)
 
     return(
       <div>
