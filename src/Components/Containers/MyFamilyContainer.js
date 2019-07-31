@@ -3,6 +3,7 @@ import Villager from '../Villager'
 import {connect} from 'react-redux'
 import {  } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
+import { Card } from 'semantic-ui-react'
 
 class MyFamilyContainer extends Component{
 
@@ -10,12 +11,12 @@ class MyFamilyContainer extends Component{
 
   render(){
     return(
-      <div>
+      <Card.Group>
       {
         this.props.family &&
         this.props.family.members.map((vill) => <Villager villager={vill} />)
       }
-      </div>
+      </Card.Group>
     )
   }
 

@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Button } from 'semantic-ui-react'
 
-function PanicButton(props){
-  console.log("this villager's lost status: ", props.lost)
+class PanicButton extends Component{
+
+  handleClick = () => {
+    console.log("HONEY I LOST THE KID!")
+  }
+
+  render(){
     return(
-      <div>
-        <button>{props.lost? "FOUND" : "PANIC"}</button>
-      </div>
+        <Button className="panic" floated="right" onClick={this.handleClick}>{this.props.lost? "FOUND" : "PANIC"}</Button>
     )
+  }
 }
 
 export default PanicButton;

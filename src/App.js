@@ -11,6 +11,7 @@ import VillageContainer from  "./components/Containers/VillageContainer"
 import EditContainer from './components/Containers/EditContainer.js'
 import VillagerProfile from './components/VillagerProfile'
 import { getCurrentUser } from './actions/functions'
+import NavBar from './components/NavBar'
 
 class App extends Component{
 
@@ -45,7 +46,8 @@ class App extends Component{
 
 function Header() {
   return (
-    Navbar()
+    // Navbar()
+    <NavBar />
   );
 }
 
@@ -58,19 +60,6 @@ const link = {//STAND IN STYLING. NEEDS CHANGING!
   color: 'white',
 }
 
-const Navbar = () => {
-
-  return(
-  <div>
-    <NavLink to="/" exact style={link} activeStyle={{background: 'darkblue'}}>Home</NavLink>
-    <NavLink to="/about" exact style={link} activeStyle={{background: 'darkblue'}}>About Us</NavLink>
-    { localStorage.getItem("token") ? null : <NavLink to="/login" exact style={link} activeStyle={{background: 'darkblue'}}>Log In</NavLink> }
-    { localStorage.getItem("token") ? null : <NavLink to="/create-account" exact style={link} activeStyle={{background: 'darkblue'}}>Create Account</NavLink>}
-    { localStorage.getItem("token") ? <NavLink to="/my-village" exact style={link} activeStyle={{background: 'darkblue'}}>My Village</NavLink> : null}
-    { localStorage.getItem("token")  ? <NavLink to="/profile" exact style={link} activeStyle={{background: 'darkblue'}}>Profile</NavLink> : null}
-  </div>
-  )
-}
 
 const mapStateToProps = (state) => {
   return {user: state.users.user}
@@ -81,29 +70,3 @@ let mapDispatchToProps = {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
-
-
-
-
-
-//   <NavbarSticky>
-//   <NavbarContainer>
-//   <Navbar left>
-//   <NavItem>
-//   <Link>Home</Link>
-// {  // <NavbarDropdown>
-  //   // <NavItem>
-  //   // <Link href="#">Link</Link>
-  //   // </NavItem>
-  //   // </NavbarDropdown>
-  // }
-  //   </NavItem>
-  //   <NavItem>
-  //     <Link href="/">Home</Link>
-  //   </NavItem>
-  //   <NavItem>
-  //   <Link href="#">Link</Link>
-  //   </NavItem>
-  //   </Navbar>
-  //   </NavbarContainer>
-  //   </NavbarSticky>

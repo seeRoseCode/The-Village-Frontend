@@ -3,6 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import defaultImg from './defaultImages/defaultImg.png'
 import PanicButton from './PanicButton'
+import { Image, Card, Button, Header } from 'semantic-ui-react'
 // import {Redirect} from 'react-router-dom'
 
 
@@ -15,28 +16,30 @@ class ProfileCard extends Component {
 
   renderImg = () => {
     if (this.props.thisUser.img_url === null || this.props.thisUser.img_url === "" || this.props.thisUser.img_url === undefined){
-      return <img src={defaultImg} alt="profile pic here" />
+      return <Image src={defaultImg} size="huge" alt="profile pic here" circular/>
       }
     else {
-      return <img src={this.props.thisUser.img_url} alt="profile pic here" />
+      return <Image src={this.props.thisUser.img_url} size="big" alt="profile pic here" circular/>
     }
   }
 
   renderEditButton = () => {
     console.log("the logged in user: ", this.props.user)
     if (this.props.user === this.props.thisUser){
-      return <button onClick={this.handleEdit}>edit</button>
+      return <Button onClick={this.handleEdit}>edit</Button>
     }
   }
 
   render(){
     return(
       <div>
-        {this.renderImg()}
-        <h3>{this.props.thisUser.name}</h3>
-        <h3>{this.props.thisUser.age} years old</h3>
+      {this.renderImg()}
+      <Card floated="right">
+        <Header floated="right">{this.props.thisUser.name}</Header>
+        <Card.Meta>{this.props.thisUser.age} years old</Card.Meta>
         <PanicButton />
         {this.renderEditButton}
+      </Card>
       </div>
     )
     }
