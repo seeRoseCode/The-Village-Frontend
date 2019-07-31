@@ -5,6 +5,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 export function updateVillagerStatus(userId, userStatus){
+  console.log("user id: ", userId, "user Status: ", userStatus)
   return dispatch => {
     // debugger;
 
@@ -17,30 +18,30 @@ export function updateVillagerStatus(userId, userStatus){
       body: JSON.stringify({status: userStatus})
       })
       .then(res => res.json())
-      .then(res => {
-        console.log("did we get a response?", res)
-        // dispatch({type: UPDATE_VILLAGER_STATUS, villager: res})
-      })
+      // .then(res => {
+      //   // console.log("did it update?", res)
+      //   // dispatch({type: UPDATE_VILLAGER_STATUS, villager: res})
+      // })
   }
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
-export function updateUserStatus(data){
+export function updateUserStatus(userId, userStatus){
   return dispatch => {
-    debugger;
 
-    fetch(`${usersURL}/${data}`, {
+    fetch(`${usersURL}/${userId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         'Accepts': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify({status: userStatus})
       })
       .then(res => res.json())
       .then(res => {
         dispatch({type: UPDATE_USER_STATUS, user: res})
+        console.log("who are you?", res)
       })
   }
 }

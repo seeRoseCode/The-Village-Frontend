@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PanicButton from './PanicButton'
 import { withRouter, Link } from 'react-router-dom'
 import defaultImg from './images/defaultImg.png'
-import { Button, Card, Image, Header} from 'semantic-ui-react'
+import { Button, Card, Image, Header, Reveal} from 'semantic-ui-react'
 
 
 
@@ -12,7 +12,7 @@ class Villager extends Component{
           return <Image floated='right' size="small" src={defaultImg} wrapped ui={false} />
           }
         else {
-          return <Image floated='right' size="small" src={this.props.villager.img} wrapped ui={false} />
+          return <Image floated='right' size="small" src={this.props.villager.img} wrapped ui={false}/>
           }
   }
 
@@ -22,15 +22,18 @@ class Villager extends Component{
     return(
 
       <Card>
-          {this.renderImg()}
+      {this.renderImg()}
 
-            <Header>{thisUser.name}</Header>
-            <Card.Meta>{thisUser.age} years old</Card.Meta>
-            <Card.Content>
-              <PanicButton thisUser={thisUser} />
-              <Button as='a' href={`/villager-profile/${thisUser.id}`} floated="left">VIEW</Button>
-            </Card.Content>
+      <Header>{thisUser.name}</Header>
+      <Card.Meta>{thisUser.age} years old</Card.Meta>
+      <Card.Content>
+      <PanicButton thisUser={thisUser} />
+      <Button as='a' href={`/villager-profile/${thisUser.id}`} floated="left">VIEW</Button>
+      </Card.Content>
       </Card>
+
+
+
     )
   }
 }
@@ -39,3 +42,26 @@ class Villager extends Component{
 
 
 export default withRouter(Villager);
+
+//CARD RENDERING!
+
+
+
+// <Reveal animated='small fade'>
+// <Reveal.Content visible>
+// {this.renderImg()}
+// </Reveal.Content>
+// <Reveal.Content hidden>
+// <Card>
+// <Card.Content>
+// <Header>{thisUser.name}</Header>
+// <Card.Meta>{thisUser.age} years old</Card.Meta>
+// <Card.Content>
+// <PanicButton thisUser={thisUser} />
+// <Button as='a' href={`/villager-profile/${thisUser.id}`} floated="left">VIEW</Button>
+// </Card.Content>
+// </Card.Content>
+// </Card>
+// </Reveal.Content>
+// </Reveal>
+// )

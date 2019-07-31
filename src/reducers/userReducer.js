@@ -20,7 +20,7 @@ const userReducer =  (state = userState, action) => {
     case GET_CURRENT_USER:
       return {user: action.user}
     case EDIT_USER:
-      return {user:action.user}
+      return {user: action.user}
     case UPDATE_USER_STATUS:
       return {user: action.user}
     default:
