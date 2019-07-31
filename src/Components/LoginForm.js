@@ -22,17 +22,14 @@ class LoginForm extends Component{
     handleChange = (e) => {
       if (e.target.name === "username"){
         this.setState({ user:{...this.state.user, username: e.target.value.toLowerCase()} })
-        console.log("username", e.target.value.toLowerCase())
       }
       else if (e.target.name === "password"){
         this.setState({ user:{...this.state.user, password: e.target.value.toLowerCase()} })
-        console.log("password", e.target.value.toLowerCase())
       }
     }//WORKING
 
     handleSubmit = (e) => {
       e.preventDefault()
-      console.log("user to login", this.state.user)
 
      fetch(loginURL,
        {
@@ -46,13 +43,11 @@ class LoginForm extends Component{
      )
      .then(res => res.json())
      .then(res => {
-       console.log("the user we got back", res.user)
        if (res.errors)
          this.setState({errors: res.errors})
        else{
          localStorage.setItem("token", res.jwt)
          this.props.history.push('/profile')
-         console.log("log in: ", res.user)
          }
        }
      )

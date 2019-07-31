@@ -19,8 +19,7 @@ class ProfileContainer extends Component{
   }
 
   render(){
-  console.log("profile cont: ", this.props)
-
+    if (Object.keys(this.props.user).length > 0) {
     return(
       <div>
         <br/>
@@ -30,6 +29,9 @@ class ProfileContainer extends Component{
         <PostsContainer />
       </div>
     )
+  }
+    else
+      return null
   }
 }
 

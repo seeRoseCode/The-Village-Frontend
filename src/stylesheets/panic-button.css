@@ -1,0 +1,17 @@
+@-webkit-keyframes flashing{
+  0% {background-color: red;}
+  100% {background-color: white;}
+}
+
+@keyframes flashing {
+  0% {background-color: red;}
+  100% {background-color: white;}
+}
+
+.flashing {
+    -webkit-animation: flashing 2500ms linear infinite;
+    animation-name: flashing;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+}
