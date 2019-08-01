@@ -132,9 +132,13 @@ div{
 }
 
 .profile-card{
-  border: 1px groove teal !important;
+  border: 3px solid teal !important;
+  background-color: white !important;
   width: 350px !important;
+  box-shadow: 5px 10px lightGray !important;
+  padding-bottom: 10px;
 }
+
 
 @font-face {
 font-family: 'DIN Alternate Bold';
@@ -163,4 +167,15 @@ src: local('DIN Alternate Bold'), url('../fonts/din-alternate-cufonfonts-webfont
 
 p{
   font-size: 20px;
+}
+
+.two.column.row {
+  background-image: url("https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
+}
+
+.navBar {
+  /* position: fixed !important; */
+  top:0 !important;
+  width: 100% !important;
+  overflow: hidden !important;
 }

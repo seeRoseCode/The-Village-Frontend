@@ -42,9 +42,11 @@ class ProfileCard extends Component {
 
             <Header as="h1" >{this.props.thisUser.name}</Header>
             <Header as="h2">{this.props.thisUser.age} years old</Header>
+            <Divider />
             <div className="buttons">
             <PanicButton thisUser={this.props.user} />
             {this.renderEditButton()}
+            <br />
             </div>
 
 

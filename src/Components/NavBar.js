@@ -22,8 +22,8 @@ class NavBar extends Component {
     const { activeItem } = this.state
 
     return (
-      <div>
-        <Menu pointing secondary className="navBar">
+      <div className="navBar">
+        <Menu pointing secondary >
           <Menu.Item as={Link} to='/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/browse-users' name='Browse' active={activeItem === 'Browse'} onclick={this.handleItemClick} />

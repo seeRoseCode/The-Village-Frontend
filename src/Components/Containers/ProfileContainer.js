@@ -26,7 +26,6 @@ class ProfileContainer extends Component{
     if (Object.keys(this.props.user).length > 0) {
     return(
       <div>
-      <Image className="banner-image" src={bannerImg}/>
       <Grid className="profile-container" divided="vertically">
         <Grid.Row columns={2}>
           <ProfileCard thisUser={this.props.user} />
