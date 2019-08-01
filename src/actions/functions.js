@@ -1,7 +1,27 @@
- import { GET_CURRENT_USER, EDIT_USER, FIND_USER, UPDATE_USER_STATUS, UPDATE_VILLAGER_STATUS } from './types'
+ import { GET_CURRENT_USER, EDIT_USER, FIND_USER, UPDATE_USER_STATUS, UPDATE_VILLAGER_STATUS, FETCH_USERS } from './types'
  // const loginURL = 'http://localhost:3000/login'
  const profileURL = 'http://localhost:3000/profile'
  const usersURL = 'http://localhost:3000/users'
+
+////////////////////////////////////////////////////////////////////////////////
+export function fetchUsers(){
+  return dispatch => {
+
+    fetch(usersURL)
+    .then(res => res.json())
+    .then(res => {
+      console.log("all the users: ", res)
+      dispatch({type: FETCH_USERS, allUsers: res})
+    })
+
+
+
+  }
+}
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 export function updateVillagerStatus(userId, userStatus){
