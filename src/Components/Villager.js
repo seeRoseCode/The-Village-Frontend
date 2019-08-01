@@ -24,7 +24,7 @@ class Villager extends Component{
       <Card >
       {this.renderImg()}
 
-      <Header>{thisUser.name}</Header>
+      <Header>{thisUser.username.charAt(0).toUpperCase() + thisUser.username.slice(1)}</Header>
       <Card.Meta>{thisUser.age} years old</Card.Meta>
       <Card.Content>
       <PanicButton thisUser={thisUser} />

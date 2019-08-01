@@ -11,7 +11,7 @@ import VillageContainer from  "./components/Containers/VillageContainer"
 import EditContainer from './components/Containers/EditContainer.js'
 import AllUsersContainer from './components/Containers/AllUsersContainer'
 // import VillagerProfile from './components/VillagerProfile'
-import { getCurrentUser} from './actions/functions'
+import { getCurrentUser, fetchUsers} from './actions/functions'
 import NavBar from './components/NavBar'
 // import { Divider } from 'semantic-ui-react'
 import './stylesheets/App.css'
@@ -21,6 +21,7 @@ class App extends Component{
   componentDidMount(){
     if (localStorage.getItem("token")) {
       this.props.getCurrentUser()
+      this.props.fetchUsers()
     }
     //dispatch an action that fetches the current user from the backend and saves the store
   }
@@ -71,7 +72,7 @@ const mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = {
-  getCurrentUser
+  getCurrentUser, fetchUsers
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

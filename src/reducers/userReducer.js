@@ -1,4 +1,4 @@
-import { FETCH_USERS, ADD_CHILD, CREATE_ACCOUNT, CREATE_EVENT, GET_CURRENT_USER, EDIT_USER, UPDATE_USER_STATUS} from '../actions/types'
+import { ADD_TO_VILLAGE, FETCH_USERS, ADD_CHILD, CREATE_ACCOUNT, CREATE_EVENT, GET_CURRENT_USER, EDIT_USER, UPDATE_USER_STATUS} from '../actions/types'
 
 
 const userState = {
@@ -22,6 +22,8 @@ const userReducer =  (state = userState, action) => {
       return {...state, user: action.user}
     case FETCH_USERS:
       return {...state, allUsers: action.allUsers}
+    case ADD_TO_VILLAGE:
+      return {...state}
     default:
       return state
   }

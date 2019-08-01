@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
 import { Grid, Image } from 'semantic-ui-react'
+import bannerImg from '../images/banner-image-5.jpg'
 
 class ProfileContainer extends Component{
 
@@ -25,16 +26,12 @@ class ProfileContainer extends Component{
     if (Object.keys(this.props.user).length > 0) {
     return(
       <div>
-      <Image src={this.props.user.banner_url}/>
       <Grid className="profile-container" divided="vertically">
         <Grid.Row columns={2}>
           <ProfileCard thisUser={this.props.user} />
         </Grid.Row>
         <Grid.Row>
           <MyFamilyContainer family={this.props.user.family}/>
-        </Grid.Row>
-        <Grid.Row>
-          <PostsContainer />
         </Grid.Row>
       </Grid>
       </div>

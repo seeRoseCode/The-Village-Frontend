@@ -2,6 +2,30 @@
  // const loginURL = 'http://localhost:3000/login'
  const profileURL = 'http://localhost:3000/profile'
  const usersURL = 'http://localhost:3000/users'
+ const villageURL = 'http://localhost:3000/connections'
+////////////////////////////////////////////////////////////////////////////////
+export function addToVillage(mainUserId, villagerId){
+  return dispatch => {
+  fetch(villageURL, {
+    method: "POST",
+    headers: {
+        "Content-Type": "Application/Json",
+        "Accept-Type": "Application/Json"
+    },
+    body: JSON.stringify({user_id: mainUserId, connected_user_id: villagerId})
+
+  }).then(res => res.json())
+  .then(res => {
+      console.log("did I add you?!", res)
+      // history.push('/profile')
+  })
+}
+}
+
+
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 export function fetchUsers(){
@@ -10,8 +34,8 @@ export function fetchUsers(){
     fetch(usersURL)
     .then(res => res.json())
     .then(res => {
-      console.log("all the users: ", res)
-      dispatch({type: FETCH_USERS, allUsers: res})
+      let newArray = shuffle(res)
+      dispatch({type: FETCH_USERS, allUsers: newArray})
     })
 
 
@@ -61,7 +85,6 @@ export function updateUserStatus(userId, userStatus){
       .then(res => res.json())
       .then(res => {
         dispatch({type: UPDATE_USER_STATUS, user: res})
-        console.log("who are you?", res)
       })
   }
 }
@@ -117,7 +140,14 @@ export function getCurrentUser(){
     })
   }
 }
-
+//////////////////////////////HELPERS///////////////////////////////////////////
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}
 
 ////////////////////////////////////UNUSED//////////////////////////////////////
 
