@@ -9,10 +9,10 @@ import { Button, Card, Image, Header, Reveal} from 'semantic-ui-react'
 class Villager extends Component{
   renderImg = () => {
         if (this.props.villager.img === null || this.props.villager.img === "" || this.props.villager.img === undefined){
-          return <Image floated='right' size="small" src={defaultImg} wrapped ui={false} />
+          return <Image className="card-image" floated='right' size="small" src={defaultImg} wrapped ui={false} />
           }
         else {
-          return <Image floated='right' size="small" src={this.props.villager.img} wrapped ui={false}/>
+          return <Image className="card-image" floated='right' size="small" src={this.props.villager.img} wrapped ui={false}/>
           }
   }
 
@@ -21,7 +21,7 @@ class Villager extends Component{
     let thisUser = this.props.villager
     return(
 
-      <Card>
+      <Card className="villager-card">
       {this.renderImg()}
 
       <Header>{thisUser.name}</Header>

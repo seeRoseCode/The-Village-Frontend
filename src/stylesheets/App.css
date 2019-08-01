@@ -1,17 +1,61 @@
  .App {
   text-align: center;
-  background-color: #8c62aa;
+  background-color: white;
 }
+
 
 .scrolling{
   margin: auto;
 }
 
-.Image {
-  margin: auto;
+.family-container {
+  border: 5px solid teal !important;
+  width: 100% !important;
+  overflow: scroll;
 }
 
+.villager-card {
+  width: 450px !important;
+}
+
+.card{
+  width: 250px !important;
+}
+
+/* .icon{
+  width:200px !important;
+} */
+
+.card-image {
+  height: 200px !important;
+  overflow: hidden !important;
+  border-top-left-radius: 50% 50% !important;
+  border-top-right-radius: 50% 50% !important;
+  border-bottom-right-radius: 50% 50% !important;
+  border-bottom-left-radius: 50% 50% !important;
+}
+
+Container {
+  border: 1px groove teal !important;
+}
+
+div{
+  oacity: 0.5;
+}
 
 .about{
   font-size: 4em;
+}
+
+.menu{
+  color: teal !important;
+}
+
+.profile-card{
+  border: 1px groove teal !important;
+
+}
+
+.divider{
+  border: 3px groove teal !important;
 }

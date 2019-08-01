@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { Menu, Segment } from 'semantic-ui-react'
+import { Menu, Segment, Image } from 'semantic-ui-react'
 import {withRouter, Link} from 'react-router-dom'
+import logo from './images/village-logo-3.jpg'
+// import '../stylesheets/codepen.css'
 
 class NavBar extends Component {
   state = { activeItem: 'home' }
@@ -11,12 +13,16 @@ class NavBar extends Component {
     this.props.history.push("/")
   }
 
+  logoHeader = () => {
+    return <Image src={logo} avatar/>
+  }
+
   render() {
     const { activeItem } = this.state
 
     return (
       <div>
-        <Menu pointing secondary>
+        <Menu pointing secondary >
           <Menu.Item as={Link} to='/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
           { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/login' name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />}
@@ -25,7 +31,7 @@ class NavBar extends Component {
           { localStorage.getItem("token") ? <Menu.Item as={Link} to='/my-village' name='My Village' active={activeItem === 'My Village'} onClick={this.handleItemClick} /> : null}
 
           <Menu.Menu position='right'>
-            <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogout} />
+            { localStorage.getItem("token") ? <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogout} /> : null}
           </Menu.Menu>
         </Menu>
       </div>
