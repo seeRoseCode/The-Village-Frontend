@@ -20,9 +20,12 @@ class ProfileContainer extends Component{
   this.props.history.push("/")
   }
 
+
   render(){
     if (Object.keys(this.props.user).length > 0) {
     return(
+      <div>
+      <Image src={this.props.user.banner_url}/>
       <Grid className="profile-container" divided="vertically">
         <Grid.Row columns={2}>
           <ProfileCard thisUser={this.props.user} />
@@ -34,6 +37,7 @@ class ProfileContainer extends Component{
           <PostsContainer />
         </Grid.Row>
       </Grid>
+      </div>
     )
   }
     else
@@ -42,7 +46,7 @@ class ProfileContainer extends Component{
 }
 
 const mapStateToProps = (state) => {
-  return { user: state.users.user}
+  return { user: state.users.user, thisUser: state.villagers.villager}
 }
 
 

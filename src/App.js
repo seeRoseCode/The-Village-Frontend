@@ -9,10 +9,11 @@ import CreateAccountContainer from  "./components/Containers/CreateAccountContai
 import ProfileContainer from  "./components/Containers/ProfileContainer"
 import VillageContainer from  "./components/Containers/VillageContainer"
 import EditContainer from './components/Containers/EditContainer.js'
-import VillagerProfile from './components/VillagerProfile'
-import { getCurrentUser } from './actions/functions'
+import AllUsersContainer from './components/Containers/AllUsersContainer'
+// import VillagerProfile from './components/VillagerProfile'
+import { getCurrentUser} from './actions/functions'
 import NavBar from './components/NavBar'
-import { Divider } from 'semantic-ui-react'
+// import { Divider } from 'semantic-ui-react'
 import './stylesheets/App.css'
 
 class App extends Component{
@@ -38,7 +39,10 @@ class App extends Component{
           <Route exact path="/profile" component={ProfileContainer} />
           <Route exact path="/my-village" component={VillageContainer} />
           <Route exact path="/edit-profile" component={EditContainer} />
-          <Route exact path="/villager-profile/:id" component={VillagerProfile} />
+          {
+          // <Route exact path="/villager-profile/:id" component={VillagerProfile} />
+          }
+          <Route exact path="/browse-users" component={AllUsersContainer} />
         </Switch>
       </div>
     )
