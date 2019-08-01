@@ -1,12 +1,15 @@
 import React from 'react';
 import LoginForm from '../LoginForm'
-import { Container } from 'semantic-ui-react'
+import { Container, Image } from 'semantic-ui-react'
+import backgroundimg from '../images/login-page-img.jpg'
+
 
 function LoginContainer(){
     return(
-      <Container>
+      <div>
+        <Image src={backgroundimg}/>
         <LoginForm />
-      </Container>
+      </div>
     )
 }
 

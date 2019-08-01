@@ -12,6 +12,8 @@ import EditContainer from './components/Containers/EditContainer.js'
 import VillagerProfile from './components/VillagerProfile'
 import { getCurrentUser } from './actions/functions'
 import NavBar from './components/NavBar'
+import { Divider } from 'semantic-ui-react'
+import './stylesheets/App.css'
 
 class App extends Component{
 
@@ -26,7 +28,7 @@ class App extends Component{
 
    return(
 
-      <div>
+      <div className="App">
       <Header />
         <Switch>
           <Route exact path="/" component={HomeContainer} />
@@ -46,7 +48,6 @@ class App extends Component{
 
 function Header() {
   return (
-    // Navbar()
     <NavBar />
   );
 }

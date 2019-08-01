@@ -76,7 +76,7 @@ class PanicButton extends Component{
   render(){
     console.log("who are you?", this.props.thisUser)
     return(
-      <Modal open={this.state.open} size="mini" trigger={<Button floated="right" centered={false} onClick={this.toggleModal}>{this.buttonStatus()}</Button>}>
+      <Modal open={this.state.open} size="mini" trigger={<Button  centered={true} onClick={this.toggleModal}>{this.buttonStatus()}</Button>}>
         <Modal.Header>
           What is {this.props.thisUser.name.split(' ')[0]}'s status?
           </Modal.Header>
@@ -87,7 +87,7 @@ class PanicButton extends Component{
             <Form.Radio size="large" label='LOST' value="lost" checked={this.state.status === 'lost'} onChange={this.handleClick}/>
             <Form.Radio size="large" label='HURT' value="hurt" checked={this.state.status === 'hurt'} onChange={this.handleClick}/>
             <Form.Radio size="large" label='SAFE' value="safe" checked={this.state.status === 'safe'} onChange={this.handleClick}/>
-            <Button floated="right" color="teal" onClick={this.toggleModal}>confirm</Button>
+            <Button className="button" floated="right" color="teal" onClick={this.toggleModal}>confirm</Button>
           </Form.Group>
         </Form>
         </Modal.Content>

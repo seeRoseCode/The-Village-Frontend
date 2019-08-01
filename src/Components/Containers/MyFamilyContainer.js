@@ -12,12 +12,12 @@ class MyFamilyContainer extends Component{
 
   render(){
     return(
-      <Card.Group itemsPerRow={3} className="scrolling">
+      <div className="scrolling-wrapper">
       {
-        this.props.family &&
-        this.props.family.members.map((vill) => <Villager villager={vill} />)
+        this.props.user.village &&
+        this.props.user.village.map((vill) => <Villager villager={vill} />)
       }
-      </Card.Group>
+      </div>
     )
   }
 

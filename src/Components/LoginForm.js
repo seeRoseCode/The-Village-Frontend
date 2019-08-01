@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 // import { Redirect, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-// import { login } from '../actions/functions'
+import { Button, Form, Grid, Container, Header, Image, Message, Segment} from 'semantic-ui-react'
+import logo from './images/village-logo-3.jpg'
+
 const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
@@ -20,17 +22,17 @@ class LoginForm extends Component{
     }
 
     handleChange = (e) => {
+      console.log("this is e: ", e.target.name)
       if (e.target.name === "username"){
-        this.setState({ user:{...this.state.user, username: e.target.value.toLowerCase()} })
+        this.setState({user:{...this.state.user, username: e.target.value.toLowerCase()} })
       }
       else if (e.target.name === "password"){
-        this.setState({ user:{...this.state.user, password: e.target.value.toLowerCase()} })
+        this.setState({user:{...this.state.user, password: e.target.value.toLowerCase()} })
       }
     }//WORKING
 
     handleSubmit = (e) => {
       e.preventDefault()
-
      fetch(loginURL,
        {
          method: "POST",
@@ -43,6 +45,7 @@ class LoginForm extends Component{
      )
      .then(res => res.json())
      .then(res => {
+       console.log("this is what we sent: ", this.state.user)
        if (res.errors)
          this.setState({errors: res.errors})
        else{
@@ -56,20 +59,31 @@ class LoginForm extends Component{
     render(){
 
     return(
-      <div>
-          <form onSubmit={this.handleSubmit}>
-          <br/>
-          {this.state.errors.map(error => <p>{error}</p>)}
-          <br/>
-          <label>Username</label>
-          <input type="text" name="username" onChange={this.handleChange}/>
-          <br/>
-          <label>Password</label>
-          <input type="text" name="password" onChange={this.handleChange}/>
-          <br/>
-          <input type="submit"/>
-        </form>
-      </div>
+      <Container className="form-container">
+
+      <Grid textAlign='center' style={{ height: '100vh' }} >
+        <Grid.Column style={{ maxWidth: 450 }}>
+
+          <Header className="form-header" as='h2' color='teal' textAlign='center'>
+             <Image src={logo} size="tiny"/> Log-in to your account
+          </Header>
+          <Form size='large' onSubmit={this.handleSubmit}>
+            <Segment stacked>
+              {this.state.errors.map(error => <p>{error}</p>)}
+              <Form.Input fluid icon='user' iconPosition='left' name='username' placeholder='Username' onChange={this.handleChange} />
+              <Form.Input fluid icon='lock' iconPosition='left' name='password' placeholder='Password' type='password' onChange={this.handleChange}/>
+              <Button color='teal' fluid size='large'>
+                Login
+              </Button>
+            </Segment>
+          </Form>
+          <Message>
+            New to us? <a href='/create-account'>Sign Up</a>
+          </Message>
+        </Grid.Column>
+      </Grid>
+</Container>
+
     )
   }//WORKING
 }

@@ -5,10 +5,12 @@ import PostsContainer from '../Containers/PostsContainer'
 import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
+import { Grid, Image } from 'semantic-ui-react'
 
 class ProfileContainer extends Component{
 
   componentDidMount(){
+    console.log("this is the current user: ", this.props.user)
     this.props.getCurrentUser()
   }
 
@@ -21,13 +23,17 @@ class ProfileContainer extends Component{
   render(){
     if (Object.keys(this.props.user).length > 0) {
     return(
-      <div>
-        <br/>
-        <ProfileCard thisUser={this.props.user} />
-        <br/>
-        <MyFamilyContainer family={this.props.user.family}/>
-        <PostsContainer />
-      </div>
+      <Grid className="profile-container" divided="vertically">
+        <Grid.Row columns={2}>
+          <ProfileCard thisUser={this.props.user} />
+        </Grid.Row>
+        <Grid.Row>
+          <MyFamilyContainer family={this.props.user.family}/>
+        </Grid.Row>
+        <Grid.Row>
+          <PostsContainer />
+        </Grid.Row>
+      </Grid>
     )
   }
     else
@@ -45,3 +51,12 @@ const mapDispatchToProps = {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileContainer));
+
+
+
+
+
+// <div>
+//   <br/>
+//   <br/>
+// </div>
