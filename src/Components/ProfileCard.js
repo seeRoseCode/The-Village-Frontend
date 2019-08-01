@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import defaultImg from './images/defaultImg.png'
 import PanicButton from './PanicButton'
-import { Grid, Image, Card, Button, Header, Divider, Item } from 'semantic-ui-react'
+import { Grid, Image, Card, Container, Button, Header, Divider, Item } from 'semantic-ui-react'
 // import {Redirect} from 'react-router-dom'
 const div = document.querySelector(".profile-card")
 
@@ -17,10 +17,10 @@ class ProfileCard extends Component {
 
   renderImg = () => {
     if (this.props.thisUser.img_url === null || this.props.thisUser.img_url === "" || this.props.thisUser.img_url === undefined){
-      return <Item.Image className="profile-image" src={defaultImg} size="big" alt="profile pic here" circular/>
+      return <Item.Image className="profile-image" src={defaultImg} size="medium" alt="profile pic here" circular/>
       }
     else {
-      return <Item.Image className="profile-image" src={this.props.thisUser.img_url} size="big" alt="profile pic here" />
+      return <Item.Image className="profile-image" src={this.props.thisUser.img_url} size="medium" alt="profile pic here" circular/>
     }
   }//WORKING
 
@@ -35,24 +35,20 @@ class ProfileCard extends Component {
     if (Object.keys(this.props.user).length > 0) {//OPEN IF
 
     return(//OPEN RETURN
-      <Grid className="profile-card">
-        <Grid.Row columns={2}>
+      <Container className="profile-card">
 
-          <Grid.Column>
             {this.renderImg()}
-          </Grid.Column>
 
-          <Grid.Column>
+
             <Header as="h1" >{this.props.thisUser.name}</Header>
             <Header as="h2">{this.props.thisUser.age} years old</Header>
+            <div className="buttons">
             <PanicButton thisUser={this.props.user} />
             {this.renderEditButton()}
-            </Grid.Column>
-          
+            </div>
 
 
-        </Grid.Row>
-      </Grid>
+      </Container>
     )//CLOSE RETURN
     }//CLOSE IF
 

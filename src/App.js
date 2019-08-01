@@ -30,7 +30,6 @@ class App extends Component{
 
       <div className="App">
       <Header />
-      <Divider/>
         <Switch>
           <Route exact path="/" component={HomeContainer} />
           <Route exact path="/about" component = {AboutContainer} />

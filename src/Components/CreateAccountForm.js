@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import { Button, Form, Grid, Header, Image, Message, Segment, Checkbox, Divider} from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Container, Image, Message, Segment, Checkbox, Divider} from 'semantic-ui-react'
 import logo from './images/village-logo-3.jpg'
 
 const newUserURL = `http://localhost:3000/users`
@@ -66,14 +66,15 @@ class CreateAccountForm extends Component{
 
   render(){
     return(
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Container className="form-container">
+      <Grid textAlign='center' style={{ height: '100vh' }} >
         <Grid.Column style={{ maxWidth: 450 }}>
 
-          <Header as='h2' color='teal' textAlign='center'>
+          <Header as='h2' color='teal' textAlign='center' className="form-header">
              <Image src={logo} size="small"/> Create a new account
           </Header>
           <Form size='huge' onSubmit={this.handleSubmit}>
-            <Segment stacked>
+            <Segment piled>
               {this.state.errors.map(error => <p>{error}</p>)}
               <Form.Input fluid  label="Name" name='name' placeholder='Name' onChange={this.handleChange} />
               <Form.Input fluid  label="Username" name='username' placeholder='Username' onChange={this.handleChange}/>
@@ -94,6 +95,7 @@ class CreateAccountForm extends Component{
           </Message>
         </Grid.Column>
       </Grid>
+      </Container>
     )
   }//WORKING
 

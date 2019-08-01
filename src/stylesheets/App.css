@@ -1,8 +1,77 @@
  .App {
   text-align: center;
   background-color: white;
+  font-style: Georgia !important;
 }
 
+.form-container{
+  padding: 20px !important;
+}
+
+.profile-container{
+  padding: 20px !important;
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll !important;
+  overflow-y: hidden !important;
+  white-space: nowrap !important;
+  animation: scroll 10s linear 1s infinite;
+}
+
+.indiv-review {
+  display: inline-block !important;
+}
+
+.villager-card{
+  display: inline-block !important;
+}
+
+@keyframes scroll {
+  95% { top: -100%; }
+     100% { top:0; }
+}
+
+
+.login-img{
+  width: 100% !important;
+}
+/* .divider{
+  margin-bottom: 0% !important;
+  margin-top: 0% !important;
+} */
+
+
+.form-header{
+  background-color: white !important;
+}
+
+.menu {
+  background-color: #3c3c3c !important;
+  height: 40px !important;
+  /* position: fixed !important;
+  top: 0 !important;
+  width: 100% !important; */
+}
+
+.menu .item {
+  font-family: Georgia !important;
+  font-weight: bold !important!;
+  color: white !important;
+}
+
+#my-village-nav-button{
+  font-family: 'DIN Alternate Bold' !important;
+  font-size: 150%;
+  color: #fdcd25 !important;
+  bottom: 0 !important;
+  overflow: hidden !important;
+  /* height: 60% !important; */
+  /* position: absolute !important; */
+}
+
+#my-village-nav-button .name[0]{
+}
 
 .scrolling{
   margin: auto;
@@ -12,6 +81,13 @@
   border: 5px solid teal !important;
   width: 100% !important;
   overflow: scroll;
+}
+
+.home-container{
+}
+
+.home-img{
+  width: 100% !important;
 }
 
 .villager-card {
@@ -35,9 +111,9 @@
   border-bottom-left-radius: 50% 50% !important;
 }
 
-Container {
+/* Container {
   border: 1px groove teal !important;
-}
+} */
 
 div{
   oacity: 0.5;
@@ -53,9 +129,22 @@ div{
 
 .profile-card{
   border: 1px groove teal !important;
-
+  width: 350px !important;
 }
 
-.divider{
+@font-face {
+font-family: 'DIN Alternate Bold';
+font-style: normal;
+font-weight: normal;
+src: local('DIN Alternate Bold'), url('../fonts/din-alternate-cufonfonts-webfont/DINAlternate-Bold.woff') format('woff');
+}
+
+.button {
+  font-style: Georgia !important;
+  color: white !important;
+  background-color: #3c3c3c !important;
+  align-self: center !important;
+}
+/* .divider{
   border: 3px groove teal !important;
-}
+} */

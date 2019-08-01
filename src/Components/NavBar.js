@@ -25,13 +25,13 @@ class NavBar extends Component {
         <Menu pointing secondary >
           <Menu.Item as={Link} to='/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
+          { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/create-account' name='Sign Up' active={activeItem === 'Sign Up'} onClick={this.handleItemClick} />}
           { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/login' name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />}
-          { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/create-account' name='Create Account' active={activeItem === 'Create Account'} onClick={this.handleItemClick} />}
           { localStorage.getItem("token") ? <Menu.Item as={Link} to='/profile' name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} /> : null}
-          { localStorage.getItem("token") ? <Menu.Item as={Link} to='/my-village' name='My Village' active={activeItem === 'My Village'} onClick={this.handleItemClick} /> : null}
+          { localStorage.getItem("token") ? <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogout} /> : null}
 
           <Menu.Menu position='right'>
-            { localStorage.getItem("token") ? <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogout} /> : null}
+            <Menu.Item as={Link} to='/' id="my-village-nav-button" name='My Village' active={activeItem === 'My Village'}/>
           </Menu.Menu>
         </Menu>
       </div>

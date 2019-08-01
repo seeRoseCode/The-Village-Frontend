@@ -20,18 +20,18 @@ class Villager extends Component{
   render(){
     let thisUser = this.props.villager
     return(
-
-      <Card className="villager-card">
+      <div className="villager-card">
+      <Card >
       {this.renderImg()}
 
       <Header>{thisUser.name}</Header>
       <Card.Meta>{thisUser.age} years old</Card.Meta>
       <Card.Content>
       <PanicButton thisUser={thisUser} />
-      <Button as='a' href={`/villager-profile/${thisUser.id}`} floated="left">VIEW</Button>
+      <Button as='a' href={`/villager-profile/${thisUser.id}`} centered={true}>VIEW</Button>
       </Card.Content>
       </Card>
-
+      </div>
 
 
     )

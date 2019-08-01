@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 // import { Redirect, Link } from 'react-router-dom'
 import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-import { Button, Form, Grid, Header, Image, Message, Segment} from 'semantic-ui-react'
+import { Button, Form, Grid, Container, Header, Image, Message, Segment} from 'semantic-ui-react'
 import logo from './images/village-logo-3.jpg'
+
 const loginURL = 'http://localhost:3000/login'
 
 class LoginForm extends Component{
@@ -58,10 +59,12 @@ class LoginForm extends Component{
     render(){
 
     return(
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Container className="form-container">
+
+      <Grid textAlign='center' style={{ height: '100vh' }} >
         <Grid.Column style={{ maxWidth: 450 }}>
 
-          <Header as='h2' color='teal' textAlign='center'>
+          <Header className="form-header" as='h2' color='teal' textAlign='center'>
              <Image src={logo} size="tiny"/> Log-in to your account
           </Header>
           <Form size='large' onSubmit={this.handleSubmit}>
@@ -79,7 +82,7 @@ class LoginForm extends Component{
           </Message>
         </Grid.Column>
       </Grid>
-
+</Container>
 
     )
   }//WORKING

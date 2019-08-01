@@ -23,7 +23,7 @@ class ProfileContainer extends Component{
   render(){
     if (Object.keys(this.props.user).length > 0) {
     return(
-      <Grid divided="vertically">
+      <Grid className="profile-container" divided="vertically">
         <Grid.Row columns={2}>
           <ProfileCard thisUser={this.props.user} />
         </Grid.Row>

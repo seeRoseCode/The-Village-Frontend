@@ -76,7 +76,7 @@ class PanicButton extends Component{
   render(){
     console.log("who are you?", this.props.thisUser)
     return(
-      <Modal open={this.state.open} size="mini" trigger={<Button floated="right" centered={false} onClick={this.toggleModal}>{this.buttonStatus()}</Button>}>
+      <Modal open={this.state.open} size="mini" trigger={<Button  centered={true} onClick={this.toggleModal}>{this.buttonStatus()}</Button>}>
         <Modal.Header>
           What is {this.props.thisUser.name.split(' ')[0]}'s status?
           </Modal.Header>
