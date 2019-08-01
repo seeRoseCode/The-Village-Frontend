@@ -1,15 +1,15 @@
 import React from 'react';
 import Title from '../Title'
-import { Container, Header, Divider } from 'semantic-ui-react'
+import { Container, Header, Divider, Image } from 'semantic-ui-react'
 import '../../stylesheets/App.css'
+import logo from '../images/village-logo-3.jpg'
 
 
 function About(){
     return(
       <Container text id="about">
-      <Header>ABOUT THE VILLAGE</Header>
+      <Image src={logo} className="logo"/>
       <Divider />
-      <Title />
       <p>
         We've heard that it takes a village to raise a child and we absolutely agree!
         But how do we do that in today's tech world? These days the people in your village

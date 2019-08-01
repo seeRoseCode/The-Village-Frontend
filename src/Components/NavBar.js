@@ -23,7 +23,7 @@ class NavBar extends Component {
 
     return (
       <div>
-        <Menu pointing secondary >
+        <Menu pointing secondary className="navBar">
           <Menu.Item as={Link} to='/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/browse-users' name='Browse' active={activeItem === 'Browse'} onclick={this.handleItemClick} />

@@ -10,9 +10,9 @@ import review3 from '../images/review-3.jpg'
 function ReviewContainer(){
     return(
       <div className="scrolling-wrapper">
-        <div className="indiv-review"><Image  src={review1}/></div>
-        <div className="indiv-review"><Image  src={review2}/></div>
-        <div className="indiv-review"><Image src={review3}/></div>
+        <div className="indiv"><Image  src={review1}/></div>
+        <div className="indiv"><Image  src={review2}/></div>
+        <div className="indiv"><Image src={review3}/></div>
         {
           //<ReviewCard />
         }
