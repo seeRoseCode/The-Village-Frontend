@@ -37,7 +37,7 @@ class BrowseCard extends Component{
       <Card.Meta>{thisUser.age} years old</Card.Meta>
       <Card.Content>
 
-      <Button onClick={this.addVillager} centered={true}>{this.props.user.village.includes(thisUser)? "ADDED" : "ADD TO VILLAGE"}</Button>
+      <Button onClick={this.addVillager} centered={true}>ADD TO VILLAGE</Button>
 
       </Card.Content>
       </Card>
