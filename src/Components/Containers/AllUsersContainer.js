@@ -9,7 +9,6 @@ import { Card, Divider } from 'semantic-ui-react'
 class AllUsersContainer extends Component{
 
   componentDidMount(){
-    console.log("all of the users: ", this.props.allUsers)
     this.props.fetchUsers()
   }
 

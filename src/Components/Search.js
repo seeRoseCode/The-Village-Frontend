@@ -1,15 +1,12 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
-import { Search, Grid, Header, Segment, Divider } from 'semantic-ui-react'
+import { Search, Divider } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../actions/functions'
 
 
 class SearchBar extends Component {
 
-  // componentDidMount(){
-  //   this.props.fetchUsers()
-  // }
 
   state = { isLoading: false, results: this.props.allUsers, value: '' }
 
@@ -37,11 +34,9 @@ class SearchBar extends Component {
       <div>
           <Search
             loading={isLoading}
-            // onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
               leading: true,
             })}
-            // results={results.map((result) => result.name)}
             value={value}
             {...this.props}
           />

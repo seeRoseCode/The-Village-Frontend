@@ -17,13 +17,12 @@ class BrowseCard extends Component{
         else {
           return <Image className="card-image" floated='right' size="small" src={this.props.villager.img_url} wrapped ui={false}/>
           }
-  }
+  }//WORKING
 
   addVillager = (e) => {
-    console.log("this is e: ", e.target.innerText)
     this.props.addToVillage(this.props.user.id, this.props.villager.id)
     e.target.innerText = "ADDED"
-  }
+  }//WORKING
 
 
   render(){
@@ -31,20 +30,16 @@ class BrowseCard extends Component{
     let thisUser = this.props.villager
     return(
       <Card >
-      {this.renderImg()}
-
-      <Header>{thisUser.name}</Header>
-      <Card.Meta>{thisUser.age} years old</Card.Meta>
-      <Card.Content>
-
-      <Button onClick={this.addVillager} centered={true}>{this.props.user.village.includes(thisUser)? "ADDED" : "ADD TO VILLAGE"}</Button>
-
-      </Card.Content>
+        {this.renderImg()}
+        <Header>{thisUser.name}</Header>
+        <Card.Meta>{thisUser.age} years old</Card.Meta>
+        <Card.Content>
+          <Button onClick={this.addVillager} centered={true}>{this.props.user.village.includes(thisUser)? "ADDED" : "ADD TO VILLAGE"}</Button>
+          </Card.Content>
       </Card>
-
-
     )
   }
+  
 }
 
 const mapStateToProps = (state) => {

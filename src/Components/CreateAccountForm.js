@@ -21,16 +21,14 @@ class CreateAccountForm extends Component{
       "password": "",
     },
       "errors": []
-}//COMPLETE
+  }//COMPLETE
 
   handleChange = (e) => {
-
     this.setState({
       user: {...this.state.user,
       [e.target.name]: e.target.value
     }
     }, () => console.log("Updated State: ", this.state))
-
   }//WORKING
 
   handleSubmit = (e) => {
@@ -40,7 +38,7 @@ class CreateAccountForm extends Component{
       this.setState({ adult: true })
     } else {
       this.setState({ adult: false })
-    }
+  }//WORKING
 
     ///////////////////////////////////
       fetch(newUserURL, {
@@ -67,34 +65,29 @@ class CreateAccountForm extends Component{
   render(){
     return(
       <Container className="form-container">
-      <Grid textAlign='center' style={{ height: '100vh' }} >
-        <Grid.Column style={{ maxWidth: 450 }}>
-
-          <Header as='h2' color='teal' textAlign='center' className="form-header">
+        <Grid textAlign='center' style={{ height: '100vh' }} >
+          <Grid.Column style={{ maxWidth: 450 }}>
+            <Header as='h2' color='teal' textAlign='center' className="form-header">
              <Image src={logo} size="small"/> Create a new account
-          </Header>
-          <Form size='huge' onSubmit={this.handleSubmit}>
-            <Segment piled>
-              {this.state.errors.map(error => <p>{error}</p>)}
-              <Form.Input fluid  label="Name" name='name' placeholder='Name' onChange={this.handleChange} />
-              <Form.Input fluid  label="Username" name='username' placeholder='Username' onChange={this.handleChange}/>
-              <Form.Input fluid  label="Password" name='password' placeholder='Password' type='password' onChange={this.handleChange}/>
-              <Form.Input fluid  label="Address" name='address' placeholder='Address' onChange={this.handleChange}/>
-              <Form.Input fluid  label="Age" name='age' placeholder='Age' onChange={this.handleChange}/>
-              <Form.Input fluid  label="Birthday" name='birthday' placeholder='Password' type="date" onChange={this.handleChange}/>
-              <Checkbox fluid slider color="teal" label="Married" name='married' onChange={this.handleChange}/><br/><br/>
-              <Checkbox fluid slider color="teal" label="Parent" name='parent' onChange={this.handleChange}/>
-              <Divider/>
-              <Button color='teal' type="submit" fluid size='large'>
-                Sign Up
-              </Button>
-            </Segment>
-          </Form>
-          <Message>
-            Already a member? <a href='/login'>Login</a>
-          </Message>
-        </Grid.Column>
-      </Grid>
+            </Header>
+            <Form size='huge' onSubmit={this.handleSubmit}>
+              <Segment piled>
+                {this.state.errors.map(error => <p>{error}</p>)}
+                <Form.Input fluid  label="Name" name='name' placeholder='Name' onChange={this.handleChange} />
+                <Form.Input fluid  label="Username" name='username' placeholder='Username' onChange={this.handleChange}/>
+                <Form.Input fluid  label="Password" name='password' placeholder='Password' type='password' onChange={this.handleChange}/>
+                <Form.Input fluid  label="Address" name='address' placeholder='Address' onChange={this.handleChange}/>
+                <Form.Input fluid  label="Age" name='age' placeholder='Age' onChange={this.handleChange}/>
+                <Form.Input fluid  label="Birthday" name='birthday' placeholder='Password' type="date" onChange={this.handleChange}/>
+                <Checkbox fluid slider color="teal" label="Married" name='married' onChange={this.handleChange}/><br/><br/>
+                <Checkbox fluid slider color="teal" label="Parent" name='parent' onChange={this.handleChange}/>
+                <Divider/>
+                <Button color='teal' type="submit" fluid size='large'>Sign Up</Button>
+              </Segment>
+            </Form>
+            <Message>Already a member? <a href='/login'>Login</a></Message>
+          </Grid.Column>
+        </Grid>
       </Container>
     )
   }//WORKING

@@ -1,6 +1,7 @@
+//ALLOW USERS TO ACTUALLY CREATE REVIEWS
+
 import React from 'react';
-// import Reviews from '../reviews/Reviews'
-import ReviewCard from '../ReviewCard'
+// import ReviewCard from '../ReviewCard'
 import { Image } from 'semantic-ui-react'
 import review1 from '../images/review-1.jpg'
 import review2 from '../images/review-2.jpg'

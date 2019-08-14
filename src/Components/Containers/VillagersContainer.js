@@ -3,7 +3,7 @@ import Villager from '../Villager'
 import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
-import {Card, Container} from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
 class VillagersContainer extends Component{
 
@@ -11,8 +11,7 @@ class VillagersContainer extends Component{
     this.props.getCurrentUser()
   }
 
-render(){
-
+  render(){
     return(
       <Card.Group style={{overflow: 'auto'}}>
         {
@@ -22,6 +21,7 @@ render(){
         </Card.Group>
     )
   }
+  
 }
 
 

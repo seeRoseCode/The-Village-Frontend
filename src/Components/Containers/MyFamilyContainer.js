@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Villager from '../Villager'
 import {connect} from 'react-redux'
-import {  } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
-import { Card } from 'semantic-ui-react'
 import '../../stylesheets/App.css'
 
 class MyFamilyContainer extends Component{
-
-
-
   render(){
     return(
       <div className="scrolling-wrapper">
@@ -20,9 +15,7 @@ class MyFamilyContainer extends Component{
       </div>
     )
   }
-
 }
-
 
 
 const mapStateToProps = (state) => {
@@ -30,8 +23,5 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = {
 
-}
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyFamilyContainer));
+export default withRouter(connect(mapStateToProps)(MyFamilyContainer));

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Switch, Route, NavLink, withRouter } from "react-router-dom";
-// import { Container, Icon, Link, List, ListItem, Offcanvas, OffcanvasContainer, Navbar, NavbarContainer, NavbarSticky, Section, NavItem, NavbarDropdown } from 'uikit-react';
+import { Switch, Route, withRouter } from "react-router-dom";
 import HomeContainer from  "./components/Containers/HomeContainer"
 import AboutContainer from "./components/Containers/AboutContainer"
 import LoginContainer from  "./components/Containers/LoginContainer"
@@ -13,7 +12,6 @@ import AllUsersContainer from './components/Containers/AllUsersContainer'
 // import VillagerProfile from './components/VillagerProfile'
 import { getCurrentUser, fetchUsers} from './actions/functions'
 import NavBar from './components/NavBar'
-// import { Divider } from 'semantic-ui-react'
 import './stylesheets/App.css'
 
 class App extends Component{
@@ -23,7 +21,6 @@ class App extends Component{
       this.props.getCurrentUser()
       this.props.fetchUsers()
     }
-    //dispatch an action that fetches the current user from the backend and saves the store
   }
 
  render(){
@@ -55,23 +52,14 @@ function Header() {
   return (
     <NavBar />
   );
-}
-
-const link = {//STAND IN STYLING. NEEDS CHANGING!
-  width: '100px',
-  padding: '12px',
-  margin: '0 6px 6px',
-  background: 'blue',
-  textDecoration: 'none',
-  color: 'white',
-}
+}//WORKING
 
 
 const mapStateToProps = (state) => {
   return {user: state.users.user}
 }
 
-let mapDispatchToProps = {
+const mapDispatchToProps = {
   getCurrentUser, fetchUsers
 }
 

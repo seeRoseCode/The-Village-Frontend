@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { Menu, Segment, Image } from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
 import {withRouter, Link} from 'react-router-dom'
 import logo from './images/village-logo-3.jpg'
-// import '../stylesheets/codepen.css'
 
 class NavBar extends Component {
   state = { activeItem: 'home' }
@@ -31,7 +30,6 @@ class NavBar extends Component {
           { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/login' name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />}
           { localStorage.getItem("token") ? <Menu.Item as={Link} to='/profile' name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} /> : null}
           { localStorage.getItem("token") ? <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogout} /> : null}
-
           <Menu.Menu position='right'>
             <Menu.Item as={Link} to='/' id="my-village-nav-button" name='My Village' active={activeItem === 'My Village'}/>
           </Menu.Menu>
@@ -39,13 +37,7 @@ class NavBar extends Component {
       </div>
     )
   }
-}//COMPLETE
+
+}
 
 export default withRouter(NavBar);
-
-
-
-//
-// <Segment>
-//   <img src='/images/wireframe/media-paragraph.png' alt="profile pic"/>
-// </Segment>

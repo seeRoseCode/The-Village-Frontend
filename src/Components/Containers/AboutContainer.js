@@ -1,6 +1,6 @@
+// ABOUT PARAGRAPH NEEDS WORK!
 import React from 'react';
-import Title from '../Title'
-import { Container, Header, Divider, Image } from 'semantic-ui-react'
+import { Container, Divider, Image } from 'semantic-ui-react'
 import '../../stylesheets/App.css'
 import logo from '../images/village-logo-3.jpg'
 

@@ -3,8 +3,7 @@ import {withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import defaultImg from './images/defaultImg.png'
 import PanicButton from './PanicButton'
-import { Grid, Image, Card, Container, Button, Header, Divider, Item } from 'semantic-ui-react'
-// import {Redirect} from 'react-router-dom'
+import { Container, Button, Header, Divider, Item } from 'semantic-ui-react'
 const div = document.querySelector(".profile-card")
 
 
@@ -34,8 +33,8 @@ class ProfileCard extends Component {
   render(){//OPEN RENDER
     if (Object.keys(this.props.user).length > 0) {//OPEN IF
 
-    return(//OPEN RETURN
-      <Container className="profile-card">
+      return(//OPEN RETURN
+        <Container className="profile-card">
 
             {this.renderImg()}
 
@@ -50,14 +49,15 @@ class ProfileCard extends Component {
             </div>
 
 
-      </Container>
-    )//CLOSE RETURN
-    }//CLOSE IF
+        </Container>
+      )//CLOSE RETURN
 
+    }//CLOSE IF
     else
       return null
-    }
-}//CLOSE RENDER
+    }//CLOSE RENDER
+
+}//CLOSE COMPONENT
 
 const mapStateToProps = (state) => {
   return {user: state.users.user}

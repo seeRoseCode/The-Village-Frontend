@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import ProfileCard from '../ProfileCard'
 import MyFamilyContainer from '../Containers/MyFamilyContainer'
-import PostsContainer from '../Containers/PostsContainer'
 import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
-import { Grid, Image } from 'semantic-ui-react'
-import bannerImg from '../images/banner-image-5.jpg'
+import { Grid } from 'semantic-ui-react'
 
 class ProfileContainer extends Component{
 
   componentDidMount(){
-    console.log("this is the current user: ", this.props.user)
     this.props.getCurrentUser()
   }
 
@@ -52,12 +49,3 @@ const mapDispatchToProps = {
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfileContainer));
-
-
-
-
-
-// <div>
-//   <br/>
-//   <br/>
-// </div>

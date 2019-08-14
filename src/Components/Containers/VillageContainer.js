@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import CalendarContainer from '../Containers/CalendarContainer'
 import VillagersContainer from '../Containers/VillagersContainer'
-import PostsContainer from '../Containers/PostsContainer'
 import { Container } from 'semantic-ui-react'
 
 
@@ -13,7 +12,6 @@ class VillageContainer extends Component{
       <Container>
         <CalendarContainer />
         <VillagersContainer village={this.props.user.village} />
-        <PostsContainer />
       </Container>
     )
   }

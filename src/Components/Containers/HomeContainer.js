@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Title from '../Title'
 import ReviewContainer from '../Containers/ReviewContainer'
-import ActivityContainer from '../Containers/ActivityContainer'
 import { Image, Container, Button, Divider } from 'semantic-ui-react'
 import logo from '../images/village-logo-3.jpg'
 import backgroundimg from '../images/homepage-image-1.jpg'
