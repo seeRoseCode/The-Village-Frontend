@@ -2,45 +2,28 @@ import React, { Component } from 'react';
 import { Button, Modal, Form } from 'semantic-ui-react'
 import { updateUserStatus, updateVillagerStatus } from '../actions/functions'
 import { connect } from 'react-redux'
-import '../stylesheets/panic-button.css'
+// import '../stylesheets/panic-button.css'
 
 class PanicButton extends Component{
 
   state={
-    status: "safe",
+    status: this.props.thisUser.status,
     mainUser: false,
     open: false,
     incidentDescription: "",
     modalStatus: false
   }
 
-  handleSubmit = (e) => {
-    let div = ""
-    if (this.state.mainUser === true){
-      div = document.querySelector(".profile-card")
-    }
-    else
-      div = document.querySelector(`.${this.props.thisUser.id}`)
+  // componentWillUpdate(newProps, newState){
+  //   console.log("newProps: ", newProps)
+  //   console.log("newState: ", newState)
+  // }
 
-    this.toggleFlashing(div)
+  handleSubmit = (e) => {
     this.setDispatch(this.props.thisUser.id, this.state.status)
     this.toggleModal()
-  }//INFESTED
+  }//WORKING
 
-  toggleFlashing = (div) => {
-    // console.log("this is the div: ", div)
-    // debugger
-    // if (this.state.status === "safe")
-    //   div.classList.remove("flashing")
-    // else if (localStorage.jwt && (this.state.status !== "safe") && (div.classList.includes("flashing") === false))
-    //   div.classList.add("flashing")
-
-    if (div.className.includes("flashing")) {
-        div.classList.remove("flashing")
-      }
-    else
-      div.classList.add("flashing")
-  }//INFESTED
 
   toggleModal = () => {
     this.setState({open: !this.state.open})
@@ -61,19 +44,18 @@ class PanicButton extends Component{
   }
 
   setUserData = () => {
+    if (this.props.thisUser && this.props.user && this.props.villager){
       if (this.props.thisUser.id === this.props.user.id) {
-        console.log("main user: it's a match")
         this.setState({mainUser: true})
       }
       else if (this.props.thisUser.id === this.props.villager.id){
-        console.log("villager: it's a match")
         this.setState({mainUser: false})
       }
       else {
-        console.log("not on villager page: ", this.props.thisUser)
         this.setState({ mainUser: false})
       }
-    }//WORKING
+    }
+  }//WORKING
 
 
   buttonStatus = () => {
@@ -89,9 +71,8 @@ class PanicButton extends Component{
   }//WORKING
 
   render(){
-    console.log("who are you?", this.props.thisUser)
     return(
-      <Modal open={this.state.open} size="mini" trigger={<Button  centered={true} onClick={this.toggleModal}>{this.buttonStatus()}</Button>}>
+      <Modal open={this.state.open} size="mini" trigger={<Button  centered='true' onClick={this.toggleModal}>{this.buttonStatus()}</Button>}>
         <Modal.Header>
           What is {this.props.thisUser.name.split(' ')[0]}'s status?
           </Modal.Header>

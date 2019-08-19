@@ -25,7 +25,7 @@ class NavBar extends Component {
         <Menu pointing secondary >
           <Menu.Item as={Link} to='/' name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick} />
           <Menu.Item as={Link} to='/about' name='About' active={activeItem === 'About'} onClick={this.handleItemClick} />
-          <Menu.Item as={Link} to='/browse-users' name='Browse' active={activeItem === 'Browse'} onclick={this.handleItemClick} />
+          <Menu.Item as={Link} to='/browse-users' name='Browse' active={activeItem === 'Browse'} onClick={this.handleItemClick} />
           { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/create-account' name='Sign Up' active={activeItem === 'Sign Up'} onClick={this.handleItemClick} />}
           { localStorage.getItem("token") ? null : <Menu.Item as={Link} to='/login' name='Login' active={activeItem === 'Login'} onClick={this.handleItemClick} />}
           { localStorage.getItem("token") ? <Menu.Item as={Link} to='/profile' name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} /> : null}

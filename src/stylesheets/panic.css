@@ -1,0 +1,23 @@
+/* @-webkit-keyframes flashing{
+  0% {background-color: red;}
+  100% {background-color: white;}
+}
+
+@keyframes flashing {
+  0% {background-color: red;}
+  100% {background-color: white;}
+}
+
+.flashing {
+    -webkit-animation: flashing 2500ms linear infinite !important;
+    animation-name: flashing !important;
+    animation-duration: 500ms !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+}
+
+
+.button {
+  border: 1px solid teal !important;
+  /* background-color: teal !important; */
+/* }  */

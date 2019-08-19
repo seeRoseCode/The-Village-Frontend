@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import defaultImg from './images/defaultImg.png'
 import PanicButton from './PanicButton'
 import { Container, Button, Header, Divider, Item } from 'semantic-ui-react'
+import '../stylesheets/panic.css'
 const div = document.querySelector(".profile-card")
 
 
@@ -29,6 +30,15 @@ class ProfileCard extends Component {
     }
   }//WORKING
 
+  toggleFlashing = (status) => {
+    if (div){
+      if (status === "safe")
+        div.classList.remove("flashing")
+      else if (localStorage.token)
+        div.classList.add("flashing")
+    }
+  }//INFESTED
+
 
   render(){//OPEN RENDER
     if (Object.keys(this.props.user).length > 0) {//OPEN IF
@@ -37,6 +47,7 @@ class ProfileCard extends Component {
         <Container className="profile-card">
 
             {this.renderImg()}
+            {this.toggleFlashing(this.props.user.status)}
 
 
             <Header as="h1" >{this.props.thisUser.name}</Header>

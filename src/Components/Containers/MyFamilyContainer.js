@@ -10,7 +10,7 @@ class MyFamilyContainer extends Component{
       <div className="scrolling-wrapper">
       {
         this.props.user.village &&
-        this.props.user.village.map((vill) => <Villager villager={vill} />)
+        this.props.user.village.map((vill) => <Villager villager={vill} key={vill.id} />)
       }
       </div>
     )
