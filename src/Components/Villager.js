@@ -3,7 +3,6 @@ import PanicButton from './PanicButton'
 import { withRouter } from 'react-router-dom'
 import defaultImg from './images/defaultImg.png'
 import { Card, Image, Header } from 'semantic-ui-react'
-import '../stylesheets/panic.css'
 import '../stylesheets/App.css'
 
 
@@ -33,7 +32,7 @@ class Villager extends Component{
         else {
           return <Image className="card-image" floated='right' size="small" src={this.props.villager.img} wrapped ui={false}/>
           }
-  }
+  }//INFESTED(default img not rendering for new users)
 
   toggleFlashing = (status, card) => {
     if (card){
@@ -42,7 +41,7 @@ class Villager extends Component{
       else if (localStorage.token)
         card.classList.add("flashing")
     }
-  }//INFESTED
+  }//INFESTED(pessimistically rendering)
 
   render(){
     let thisUser = this.props.villager

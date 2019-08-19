@@ -4,12 +4,16 @@ import {connect} from 'react-redux'
 import defaultImg from './images/defaultImg.png'
 import PanicButton from './PanicButton'
 import { Container, Button, Header, Divider, Item } from 'semantic-ui-react'
-import '../stylesheets/panic.css'
+import '../stylesheets/App.css'
 const div = document.querySelector(".profile-card")
 
 
 class ProfileCard extends Component {
 
+  componentDidMount(){
+    let villagerCard = document.querySelector(`.profile-card`)
+    this.toggleFlashing(this.props.user.status, villagerCard)
+  }
 
   handleEdit = () => {
     this.props.history.push('/edit-profile')
@@ -22,7 +26,7 @@ class ProfileCard extends Component {
     else {
       return <Item.Image className="profile-image" src={this.props.thisUser.img_url} size="medium" alt="profile pic here" circular/>
     }
-  }//WORKING
+  }//INFESTED(default img not consistently rendering for new users)
 
   renderEditButton = () => {
     if (this.props.user === this.props.thisUser){
@@ -30,14 +34,14 @@ class ProfileCard extends Component {
     }
   }//WORKING
 
-  toggleFlashing = (status) => {
+  toggleFlashing = (status, div) => {
     if (div){
       if (status === "safe")
         div.classList.remove("flashing")
       else if (localStorage.token)
         div.classList.add("flashing")
     }
-  }//INFESTED
+  }//INFESTED(pessimistically rendering)
 
 
   render(){//OPEN RENDER
@@ -47,8 +51,6 @@ class ProfileCard extends Component {
         <Container className="profile-card">
 
             {this.renderImg()}
-            {this.toggleFlashing(this.props.user.status)}
-
 
             <Header as="h1" >{this.props.thisUser.name}</Header>
             <Header as="h2">{this.props.thisUser.age} years old</Header>

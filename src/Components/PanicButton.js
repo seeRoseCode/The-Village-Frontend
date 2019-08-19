@@ -77,13 +77,13 @@ class PanicButton extends Component{
           What is {this.props.thisUser.name.split(' ')[0]}'s status?
           </Modal.Header>
         <Modal.Content>
-        <Form>
+        <Form >
         <Form.TextArea type="text" onChange={this.handleChange} placeholder="Oh no! What happened?!" floated="right"/>
           <Form.Group>
             <Form.Radio size="large" label='LOST' value="lost" checked={this.state.status === 'lost'} onChange={this.handleClick}/>
             <Form.Radio size="large" label='HURT' value="hurt" checked={this.state.status === 'hurt'} onChange={this.handleClick}/>
             <Form.Radio size="large" label='SAFE' value="safe" checked={this.state.status === 'safe'} onChange={this.handleClick}/>
-            <Button className="button" floated="right" color="teal" onClick={this.handleSubmit}>confirm</Button>
+            <Button type='button' className="button" floated="right" color="teal" onClick={this.handleSubmit}>confirm</Button>
           </Form.Group>
         </Form>
         </Modal.Content>
