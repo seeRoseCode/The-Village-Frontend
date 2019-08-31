@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProfileCard from '../ProfileCard'
 import MyFamilyContainer from '../Containers/MyFamilyContainer'
+import ChatBox from '../Containers/ChatBox'
 import {connect} from 'react-redux'
 import { getCurrentUser } from '../../actions/functions'
 import { withRouter } from 'react-router-dom'
@@ -29,6 +30,9 @@ class ProfileContainer extends Component{
         </Grid.Row>
         <Grid.Row>
           <MyFamilyContainer family={this.props.user.family}/>
+        </Grid.Row>
+        <Grid.Row>
+          <ChatBox thisUser={this.props.user}/>
         </Grid.Row>
       </Grid>
       </div>
